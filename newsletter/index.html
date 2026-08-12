@@ -70,7 +70,7 @@
             Get practical insights delivered to your inbox.
           </p>
 
-          <form class="newsletter-form">
+          <form class="newsletter-form" id="newsletter-form">
             <div class="form-group">
               <label for="newsletter-email" style="text-align: left;">Email Address</label>
               <input 
@@ -83,6 +83,9 @@
             </div>
 
             <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+            <p id="newsletter-status"
+                style="text-align: center; margin-top: 16px; font-size: 14px;"
+                aria-live="polite"></p>
           </form>
 
           <p style="text-align: center; font-size: var(--font-size-sm); color: var(--color-text-tertiary); margin-top: var(--spacing-lg);">
@@ -214,5 +217,57 @@
   <script src="../data/content.js"></script>
   <script src="../js/navigation.js"></script>
   <script src="../js/main.js"></script>
+<script>
+const NEWSLETTER_ENDPOINT = "https://script.google.com/macros/s/AKfycbzLf8NbNGlLOz4d-vUlHTvE5c_kUA-Em0V8ybsriNNRwm4Ed2NYmPgSGIWHjH4AjaG_/exec";
+
+const newsletterForm = document.getElementById("newsletter-form");
+const newsletterEmail = document.getElementById("newsletter-email");
+const newsletterStatus = document.getElementById("newsletter-status");
+
+newsletterForm.addEventListener("submit", async function (event) {
+  event.preventDefault();
+
+  const email = newsletterEmail.value.trim();
+
+  if (!email) {
+    newsletterStatus.textContent = "Please enter your email address.";
+    return;
+  }
+
+  const submitButton = newsletterForm.querySelector("button[type='submit']");
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Subscribing...";
+  newsletterStatus.textContent = "";
+
+  try {
+    await fetch(NEWSLETTER_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: new URLSearchParams({
+        email: email
+      })
+    });
+
+    newsletterStatus.textContent =
+      "You're subscribed! Thank you for joining the SRE Leadership Hub.";
+
+    newsletterEmail.value = "";
+
+  } catch (error) {
+    console.error("Newsletter subscription error:", error);
+
+    newsletterStatus.textContent =
+      "Something went wrong. Please try again.";
+
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "Subscribe";
+  }
+});
+</script>
 </body>
 </html>
