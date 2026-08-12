@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Beyond traditional metrics: how to measure and improve the true resilience of your engineering organization.">
+  <meta name="theme-color" content="#2c3e7f">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="From MTTR to Business Resilience">
+  <meta property="og:description" content="Beyond traditional metrics: how to measure and improve the true resilience of your engineering organization.">
+  <meta property="og:url" content="https://sreleadershiphub.com/insights/articles/mttr-business-resilience.html">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://sreleadershiphub.com/insights/articles/mttr-business-resilience.html">
+  
+  <title>From MTTR to Business Resilience - The SRE Leadership Hub</title>
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body>
+  <a href="#main" class="skip-navigation">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="header-container">
+        <a href="../../" class="logo">The SRE <span class="logo-emphasis">Leadership</span> Hub</a>
+        
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span>☰</span>
+        </button>
+        
+        <nav>
+          <ul>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../">Insights</a></li>
+            <li><a href="../../resources/">Resources</a></li>
+            <li><a href="../../advisory/">Advisory</a></li>
+            <li><a href="../../newsletter/">Newsletter</a></li>
+            <li><a href="../../about/">About</a></li>
+            <li><a href="../../contact/">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ARTICLE HEADER -->
+    <section class="section section-alt">
+      <div class="container-sm">
+        <div class="breadcrumb">
+          <a href="../">Insights</a>
+          <span>/</span>
+          <span>From MTTR to Business Resilience</span>
+        </div>
+
+        <article>
+          <header style="margin-bottom: var(--spacing-2xl);">
+            <div class="article-meta" style="margin-bottom: var(--spacing-lg);">
+              <span class="badge badge-primary">Reliability</span>
+              <span>August 10, 2026</span>
+              <span>7 min read</span>
+            </div>
+            <h1 style="margin-bottom: var(--spacing-lg);">From MTTR to Business Resilience</h1>
+            <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">
+              Beyond traditional metrics: how to measure and improve the true resilience of your engineering organization.
+            </p>
+          </header>
+        </article>
+      </div>
+    </section>
+
+    <!-- ARTICLE CONTENT -->
+    <section class="section">
+      <div class="container-sm">
+        <article>
+          <img 
+            src="https://via.placeholder.com/800x400/d4b5e0/2c3e7f?text=Business+Resilience" 
+            alt="Business Resilience Metrics"
+            style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: var(--spacing-3xl);"
+          >
+
+          <div style="font-size: var(--font-size-lg); line-height: var(--line-height-relaxed); color: var(--color-text-secondary);">
+            <h2>The Limitations of Traditional Metrics</h2>
+            <p>
+              For decades, incident management has focused on a simple metric: Mean Time To Recovery (MTTR). It's straightforward to measure, easy to understand, and provides a clear target for improvement. Lower MTTR looks good on dashboards and in executive reports.
+            </p>
+
+            <p>
+              But MTTR tells only part of the story. An organization that resolves incidents in 30 minutes is not necessarily more resilient than one that takes 2 hours—especially if the first organization has 10 incidents per week while the second has one per month. Similarly, MTTR doesn't capture severity, doesn't account for data loss or customer impact, and ignores the systemic factors that lead to incidents.
+            </p>
+
+            <p>
+              True business resilience requires looking beyond individual incident metrics to understand how your organization responds to, learns from, and prevents disruptions.
+            </p>
+
+            <h2>The Dimensions of Business Resilience</h2>
+            <p>
+              Real resilience is multidimensional. It encompasses several interconnected capabilities:
+            </p>
+
+            <h3>Detection Capability</h3>
+            <p>
+              How quickly does your organization notice when something goes wrong? Modern systems are complex, and problems can cascade silently. Some of the worst outages occur not because something broke, but because nobody knew it was broken.
+            </p>
+
+            <p>
+              Effective detection isn't just about monitoring tools. It requires:
+            </p>
+            <ul class="feature-list">
+              <li>Customer-focused monitoring that catches user-visible issues before internal alerts</li>
+              <li>Observability practices that surface anomalies and unexpected behavior</li>
+              <li>Clear escalation paths so detection leads to response</li>
+              <li>Regular testing of monitoring and alerting systems</li>
+            </ul>
+
+            <h3>Response Capability</h3>
+            <p>
+              Once detected, how quickly and effectively does your organization respond? MTTR is part of this, but not all of it. Response capability includes:
+            </p>
+
+            <ul class="feature-list">
+              <li>Clear incident command processes and role definitions</li>
+              <li>On-call rotations and escalation procedures</li>
+              <li>Rapid access to necessary tools, dashboards, and runbooks</li>
+              <li>Communication protocols with stakeholders</li>
+              <li>Authority to make emergency decisions without bureaucratic delays</li>
+            </ul>
+
+            <h3>Recovery Capability</h3>
+            <p>
+              Can your team actually restore service? This requires more than knowing what to do. It requires:
+            </p>
+
+            <ul class="feature-list">
+              <li>Redundancy and failover mechanisms built into architecture</li>
+              <li>Rollback capabilities for deployments</li>
+              <li>Tested disaster recovery procedures</li>
+              <li>Geographic distribution and multi-region capabilities where appropriate</li>
+              <li>Data backup and restore capabilities</li>
+            </ul>
+
+            <h3>Learning Capability</h3>
+            <p>
+              What does your organization do after an incident? This is where most teams fall short. True resilience organizations:
+            </p>
+
+            <ul class="feature-list">
+              <li>Conduct blameless postmortems within 24 hours</li>
+              <li>Identify root causes and systemic issues</li>
+              <li>Create action items and track them to completion</li>
+              <li>Share learnings across teams and organizations</li>
+              <li>Update runbooks, documentation, and monitoring based on learnings</li>
+            </ul>
+
+            <h2>Beyond MTTR: Measuring Organizational Resilience</h2>
+            <p>
+              If MTTR alone is insufficient, what metrics should replace or supplement it? Consider a balanced scorecard approach:
+            </p>
+
+            <h3>Prevention Metrics</h3>
+            <p>
+              <strong>Change failure rate:</strong> What percentage of deployments cause incidents? Lower is better. Track deployment frequency alongside this to see if you're moving fast safely.
+            </p>
+
+            <p>
+              <strong>Mean time between failures (MTBF):</strong> How long does your system run without incident? This shifts the focus from fixing problems quickly to preventing them entirely.
+            </p>
+
+            <h3>Detection Metrics</h3>
+            <p>
+              <strong>Detection latency:</strong> How long between incident occurrence and detection? Measure this separately from resolution time. Fast detection allows faster response.
+            </p>
+
+            <p>
+              <strong>Detection accuracy:</strong> What percentage of alerts are valid incidents vs. false positives? High false-positive rates desensitize teams and reduce alertness.
+            </p>
+
+            <h3>Response Metrics</h3>
+            <p>
+              <strong>Response time:</strong> How long between detection and first meaningful action? This measures organizational agility.
+            </p>
+
+            <p>
+              <strong>Escalation time:</strong> How long before the right people are engaged? Slow escalation extends outages unnecessarily.
+            </p>
+
+            <h3>Recovery Metrics</h3>
+            <p>
+              <strong>Mean time to recovery (MTTR):</strong> Now in proper context—not as the primary metric, but as one component of a larger picture.
+            </p>
+
+            <p>
+              <strong>Recovery success rate:</strong> What percentage of recovery attempts succeed on the first try? Rollbacks that fail twice are particularly damaging.
+            </p>
+
+            <h3>Impact Metrics</h3>
+            <p>
+              <strong>Customer impact ratio:</strong> What percentage of users actually experience impact from a given incident? A backend service down for 30 minutes might affect 0% of users if it's not on the critical path.
+            </p>
+
+            <p>
+              <strong>Revenue impact:</strong> How much revenue was at risk during the outage? This bridges technical metrics to business outcomes.
+            </p>
+
+            <h3>Learning Metrics</h3>
+            <p>
+              <strong>Postmortem completion rate:</strong> What percentage of incidents have postmortems completed? Target 100% for any incident affecting customers.
+            </p>
+
+            <p>
+              <strong>Action item completion rate:</strong> What percentage of postmortem action items are completed? Track this monthly. Consistently low completion rates indicate either unrealistic action items or organizational commitment problems.
+            </p>
+
+            <p>
+              <strong>Recurrence rate:</strong> What percentage of incidents are repeats of previous incidents? High rates indicate learning isn't happening effectively.
+            </p>
+
+            <h2>Building a Resilient Organization</h2>
+            <p>
+              Resilience isn't built through metrics alone. It requires systemic changes:
+            </p>
+
+            <p>
+              <strong>Invest in detection and observability:</strong> Spend on tools, training, and time to understand what's happening in your systems. Prevention is cheaper than recovery.
+            </p>
+
+            <p>
+              <strong>Build response muscle:</strong> Regular incident simulations and gamedays help teams execute under pressure. Like any skill, response capability improves with practice.
+            </p>
+
+            <p>
+              <strong>Invest in reliability engineering:</strong> Dedicate engineers to reducing system complexity, improving automation, and building resilience into architecture. This is not someone's part-time job.
+            </p>
+
+            <p>
+              <strong>Create a learning culture:</strong> Blameless postmortems only work if people believe they're actually blameless. Leaders must demonstrate this through action. Never punish learning. Instead, celebrate organizations that surface problems quickly.
+            </p>
+
+            <p>
+              <strong>Measure and monitor resilience:</strong> Use the metrics framework above. Review them monthly. Use them to guide investment and prioritization.
+            </p>
+
+            <h2>The Bottom Line</h2>
+            <p>
+              MTTR is a tactic; resilience is a strategy. While it's important to recover quickly from incidents, the real goal is to build organizations that prevent incidents, detect problems early, respond effectively, and learn continuously. When you focus on these broader dimensions, resilience becomes a competitive advantage that protects revenue, customer satisfaction, and team morale.
+            </p>
+
+            <p style="font-style: italic; color: var(--color-text-tertiary);">
+              The most resilient organizations aren't those that fix things fastest—they're the ones that break things least often and learn most effectively.
+            </p>
+          </div>
+
+          <!-- AUTHOR BIO -->
+          <div style="background-color: var(--color-accent-secondary-light); border-radius: var(--radius-lg); padding: var(--spacing-2xl); margin-top: var(--spacing-3xl); margin-bottom: var(--spacing-3xl);">
+            <h3>About the Leadership Hub</h3>
+            <p style="margin: 0; color: var(--color-text-secondary);">
+              The SRE Leadership Hub provides practical insights, frameworks, and advisory guidance for building reliable, scalable, and intelligent engineering organizations.
+            </p>
+          </div>
+
+          <!-- RELATED ARTICLES -->
+          <section style="border-top: 1px solid var(--color-border-light); padding-top: var(--spacing-2xl);">
+            <h2>Related Articles</h2>
+            <div class="grid grid-2" style="gap: var(--spacing-2xl);">
+              <div class="card">
+                <div class="article-meta">
+                  <span class="badge badge-primary">SRE</span>
+                </div>
+                <h3 class="article-title">Reliability Is a Business Strategy</h3>
+                <p class="article-excerpt">Explore how forward-thinking organizations are shifting reliability from an operational concern to a core business strategy.</p>
+                <div class="article-footer" style="border-top: 1px solid var(--color-border-light); padding-top: var(--spacing-base); margin-top: var(--spacing-lg);">
+                  <span class="article-reading-time">8 min</span>
+                  <a href="reliability-business-strategy.html" class="article-link">Read More →</a>
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="article-meta">
+                  <span class="badge badge-primary">SRE</span>
+                </div>
+                <h3 class="article-title">Building Effective SLOs and Error Budgets</h3>
+                <p class="article-excerpt">Learn how to define meaningful SLOs and use error budgets as a powerful tool for balancing reliability and velocity.</p>
+                <div class="article-footer" style="border-top: 1px solid var(--color-border-light); padding-top: var(--spacing-base); margin-top: var(--spacing-lg);">
+                  <span class="article-reading-time">10 min</span>
+                  <a href="slos-error-budgets.html" class="article-link">Read More →</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER CTA -->
+    <section class="section section-alt">
+      <div class="container-sm text-center">
+        <h2>Get New Insights Delivered</h2>
+        <p style="color: var(--color-text-secondary); margin-bottom: var(--spacing-2xl);">
+          Subscribe to our newsletter for engineering leadership perspectives and insights.
+        </p>
+        
+        <form class="newsletter-form newsletter-form-inline">
+          <input 
+            type="email" 
+            placeholder="your@email.com" 
+            required 
+            aria-label="Email address"
+          >
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>The SRE Leadership Hub</h3>
+          <p>Building reliable, scalable and intelligent engineering organizations.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../insights/">Insights</a></li>
+            <li><a href="../../resources/">Resources</a></li>
+            <li><a href="../../advisory/">Advisory</a></li>
+            <li><a href="../../newsletter/">Newsletter</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Topics</h4>
+          <ul>
+            <li><a href="../">SRE</a></li>
+            <li><a href="../">Platform Engineering</a></li>
+            <li><a href="../">Cloud</a></li>
+            <li><a href="../">AI Operations</a></li>
+            <li><a href="../">Engineering Leadership</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-divider">
+        <div class="footer-bottom">
+          <p>&copy; 2026 The SRE Leadership Hub. All rights reserved.</p>
+          <p>
+            <a href="../../about/">About</a> | 
+            <a href="../../contact/">Contact</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../data/content.js"></script>
+  <script src="../../js/navigation.js"></script>
+  <script src="../../js/main.js"></script>
+</body>
+</html>
