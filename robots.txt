@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sreleadershiphub.com/sitemap.xml
+Sitemap: https://dprabhakarr.github.io/sitemap.xml
