@@ -2,63 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/insights/</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/insights/</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/resources/</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/resources/</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/advisory/</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/advisory/</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/newsletter/</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/newsletter/</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/about/</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/about/</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/contact/</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/contact/</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/insights/articles/reliability-business-strategy.html</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/insights/articles/reliability-business-strategy.html</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/insights/articles/slos-error-budgets.html</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/insights/articles/slos-error-budgets.html</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/insights/articles/mttr-business-resilience.html</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/insights/articles/mttr-business-resilience.html</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/insights/articles/aiops-alerts-action.html</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/insights/articles/aiops-alerts-action.html</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/insights/articles/platform-engineering-multiplier.html</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/insights/articles/platform-engineering-multiplier.html</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/insights/articles/cloud-strategy-execution.html</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/insights/articles/cloud-strategy-execution.html</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/insights/articles/engineering-leadership-culture.html</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/insights/articles/engineering-leadership-culture.html</loc>
   </url>
 
   <url>
-    <loc>https://dprabhakarr.github.io/sre-leadership-hub/sre-leadership-hub/insights/articles/devops-transformation-journey.html</loc>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/insights/articles/devops-transformation-journey.html</loc>
   </url>
 
+  <url>
+    <loc>https://dprabhakarr.github.io/sre-leadership-hub/insights/articles/observability-cost-optimization.html</loc>
+  </url>
 </urlset>
