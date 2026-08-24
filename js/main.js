@@ -74,8 +74,11 @@
 
   const contactForm = document.getElementById('contact-form');
 
+  const CONTACT_ENDPOINT =
+    'https://script.google.com/macros/s/AKfycbzLf8NbNGlLOz4d-vUlHTvE5c_kUA-Em0V8ybsriNNRwm4Ed2NYmPgSGIWHjH4AjaG_/exec';
+
   if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+    contactForm.addEventListener('submit', async function (e) {
       e.preventDefault();
 
       const name = this.querySelector('input[name="name"]').value.trim();
@@ -87,35 +90,66 @@
 
       // Basic validation
       if (!name || !email || !subject || !message) {
-        showFormMessage('Please fill in all required fields', 'error', this);
+        showFormMessage('Please fill in all required fields.', 'error', this);
         return;
       }
 
       // Email validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
       if (!emailRegex.test(email)) {
-        showFormMessage('Please enter a valid email address', 'error', this);
+        showFormMessage('Please enter a valid email address.', 'error', this);
         return;
       }
 
-      // Disable submit button
       const originalText = submitBtn.textContent;
+
       submitBtn.disabled = true;
       submitBtn.textContent = 'Sending...';
 
-      // Simulate form submission (frontend only)
-      setTimeout(() => {
-        showFormMessage('Thank you for your message. We will be in touch shortly.', 'success', this);
+      try {
+        await fetch(CONTACT_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams({
+            name: name,
+            email: email,
+            organization: organization,
+            subject: subject,
+            message: message
+          })
+        });
+
+        showFormMessage(
+          'Thank you for your message. We will be in touch shortly.',
+          'success',
+          this
+        );
+
         this.reset();
+
+      } catch (error) {
+        console.error('Contact form submission error:', error);
+
+        showFormMessage(
+          'Something went wrong while sending your message. Please try again.',
+          'error',
+          this
+        );
+
+      } finally {
         submitBtn.disabled = false;
         submitBtn.textContent = originalText;
-      }, 1500);
+      }
     });
   }
 
   function showFormMessage(message, type, form) {
     let messageContainer = form.querySelector('.form-message');
-    
+
     if (!messageContainer) {
       messageContainer = document.createElement('div');
       messageContainer.className = `form-message ${type}`;
@@ -127,7 +161,6 @@
     messageContainer.textContent = message;
     messageContainer.style.display = 'block';
 
-    // Auto-hide success message after 5 seconds
     if (type === 'success') {
       setTimeout(() => {
         messageContainer.style.display = 'none';
