@@ -18,7 +18,7 @@ const siteData = {
       author: 'Leadership Hub',
       date: '2026-08-12',
       featured: true,
-      image: 'https://via.placeholder.com/400x250/d4b5e0/2c3e7f?text=Reliability+Strategy'
+      image: '/assets/articles/reliability-business-strategy.png'
     },
     {
       id: 'slos-error-budgets',
@@ -30,7 +30,7 @@ const siteData = {
       author: 'Leadership Hub',
       date: '2026-08-11',
       featured: true,
-      image: 'https://via.placeholder.com/400x250/d4b5e0/2c3e7f?text=SLOs+Error+Budgets'
+      image: '/assets/articles/slos-error-budgets.png'
     },
     {
       id: 'mttr-business-resilience',
@@ -42,7 +42,7 @@ const siteData = {
       author: 'Leadership Hub',
       date: '2026-08-10',
       featured: true,
-      image: 'https://via.placeholder.com/400x250/d4b5e0/2c3e7f?text=Business+Resilience'
+      image: '/assets/articles/mttr-business-resilience.png'
     },
     {
       id: 'aiops-alerts-action',
@@ -54,7 +54,7 @@ const siteData = {
       author: 'Leadership Hub',
       date: '2026-08-09',
       featured: true,
-      image: 'https://via.placeholder.com/400x250/d4b5e0/2c3e7f?text=AIOps'
+      image: '/assets/articles/aiops-alerts-action.png'
     },
     {
       id: 'platform-engineering-multiplier',
@@ -66,7 +66,7 @@ const siteData = {
       author: 'Leadership Hub',
       date: '2026-08-08',
       featured: true,
-      image: 'https://via.placeholder.com/400x250/d4b5e0/2c3e7f?text=Platform+Engineering'
+      image: '/assets/articles/platform-engineering-multiplier.png'
     },
     {
       id: 'cloud-strategy-execution',
@@ -78,7 +78,7 @@ const siteData = {
       author: 'Leadership Hub',
       date: '2026-08-07',
       featured: false,
-      image: 'https://via.placeholder.com/400x250/d4b5e0/2c3e7f?text=Cloud+Strategy'
+      image: '/assets/articles/cloud-strategy-execution.png'
     },
     {
       id: 'engineering-leadership-culture',
@@ -90,7 +90,7 @@ const siteData = {
       author: 'Leadership Hub',
       date: '2026-08-06',
       featured: false,
-      image: 'https://via.placeholder.com/400x250/d4b5e0/2c3e7f?text=Engineering+Leadership'
+      image: '/assets/articles/engineering-leadership-culture.png'
     },
     {
       id: 'devops-transformation-journey',
@@ -102,7 +102,7 @@ const siteData = {
       author: 'Leadership Hub',
       date: '2026-08-05',
       featured: false,
-      image: 'https://via.placeholder.com/400x250/d4b5e0/2c3e7f?text=DevOps+Transformation'
+      image: '/assets/articles/devops-transformation-journey.png'
     }
   ],
 
