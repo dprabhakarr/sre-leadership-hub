@@ -1,0 +1,928 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6XQ3R530EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6XQ3R530EW');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Why reliability breaks down when ownership stops at the service boundary—and how engineering leaders can create clear accountability across service teams, SRE, platform engineering and leadership.">
+  <meta name="theme-color" content="#2c3e7f">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="SRE Ownership: Who Is Really Accountable for Reliability?">
+  <meta property="og:description" content="Why reliability breaks down when ownership stops at the service boundary—and how engineering leaders can create clear accountability across service teams, SRE, platform engineering and leadership.">
+  <meta property="og:url" content="https://sreleadershiphub.com/insights/articles/sre-ownership-accountability.html">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://sreleadershiphub.com/insights/articles/sre-ownership-accountability.html">
+
+  <title>SRE Ownership: Who Is Really Accountable for Reliability? - The SRE Leadership Hub</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+
+  <!-- Article structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "SRE Ownership: Who Is Really Accountable for Reliability?",
+  "description": "Why reliability breaks down when ownership stops at the service boundary—and how engineering leaders can create clear accountability across service teams, SRE, platform engineering and leadership.",
+  "datePublished": "2026-09-02",
+  "author": {
+    "@type": "Organization",
+    "name": "The SRE Leadership Hub"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The SRE Leadership Hub"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sreleadershiphub.com/insights/articles/sre-ownership-accountability.html"
+  }
+}
+  </script>
+
+<script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5536754788296398' crossorigin='anonymous'></script>
+</head>
+
+<body>
+  <a href="#main" class="skip-navigation">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="header-container">
+        <a href="../../" class="logo">The SRE <span class="logo-emphasis">Leadership</span> Hub</a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span>☰</span>
+        </button>
+
+        <nav>
+          <ul>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../">Insights</a></li>
+            <li><a href="../../resources/">Resources</a></li>
+            <li><a href="../../advisory/">Advisory</a></li>
+            <li><a href="../../newsletter/">Newsletter</a></li>
+            <li><a href="../../about/">About</a></li>
+            <li><a href="../../contact/">Contact</a></li>
+            <li><a href="../../privacy/">Privacy Policy</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ARTICLE HEADER -->
+    <section class="section section-alt">
+      <div class="container-sm">
+        <div class="breadcrumb">
+          <a href="../">Insights</a>
+          <span>/</span>
+          <span>SRE Ownership: Who Is Really Accountable for Reliability?</span>
+        </div>
+
+        <article>
+          <header style="margin-bottom: var(--spacing-2xl);">
+            <div class="article-meta" style="margin-bottom: var(--spacing-lg);">
+              <span class="badge badge-primary">Leadership</span>
+              <span>September 2, 2026</span>
+              <span>12 min read</span>
+            </div>
+
+            <h1 style="margin-bottom: var(--spacing-lg);">
+              SRE Ownership: Who Is Really Accountable for Reliability?
+            </h1>
+
+            <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">
+              Why reliability breaks down when ownership stops at the service boundary—and how engineering leaders can create clear accountability across service teams, SRE, platform engineering and leadership.
+            </p>
+          </header>
+        </article>
+      </div>
+    </section>
+
+    <!-- ARTICLE CONTENT -->
+    <section class="section">
+      <div class="container-sm">
+        <article>
+
+          <img
+            src="../../assets/articles/sre-ownership-accountability.png"
+            alt="Reliability ownership model showing service teams, platform engineering, SRE and leadership accountability"
+            style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: var(--spacing-3xl);"
+          >
+
+  <h2>The Ownership Illusion</h2>
+
+  <p>
+    Reliability usually breaks down long before the system actually goes down.
+    It starts with a much quieter problem: <strong>Nobody is quite sure who owns the outcome.</strong>
+  </p>
+
+  <p>
+    Application teams own the code. Platform teams own infrastructure. SRE teams
+    own reliability practices. Operations teams respond to production events.
+  </p>
+
+  <p>
+    All of those statements can be true at the same time—and the customer can
+    still experience an unreliable service.
+  </p>
+
+  <p>
+    The problem is not distributed responsibility itself. The problem occurs when
+    accountability becomes so distributed that nobody has the authority, context,
+    and capability to actually change the outcome.
+  </p>
+
+  <p>
+    <strong>Being paged is not the same as owning the outcome.</strong>
+  </p>
+
+  <p>
+    A mature reliability organization therefore needs to answer a deceptively
+    simple question:
+  </p>
+
+  <blockquote>
+    Who is actually accountable for the reliability of this service?
+  </blockquote>
+
+  <p>
+    The answer cannot simply be "SRE."
+  </p>
+
+  <p>
+    SRE can provide expertise, standards, tooling, automation, and leverage.
+    But if SRE becomes the permanent owner of application reliability, the
+    organization has created a dependency rather than a scalable capability.
+  </p>
+
+  <h2>When SRE Becomes the Escalation Team</h2>
+
+  <p>
+    One of the easiest ways for reliability ownership to become unclear is for
+    SRE to become exceptionally good at rescuing other teams.
+  </p>
+
+  <p>
+    A production problem occurs. The application team escalates. SRE investigates.
+    SRE identifies the root cause. SRE recommends the fix. Sometimes SRE implements
+    the fix.
+  </p>
+
+  <p>
+    The immediate problem gets solved.
+  </p>
+
+  <p>
+    But something else has happened.
+  </p>
+
+  <p>
+    The organization has quietly learned that reliability problems belong to SRE.
+  </p>
+
+  <p>Over time, the pattern becomes predictable:</p>
+
+  <ul>
+    <li>Application teams focus primarily on feature delivery.</li>
+    <li>SRE absorbs increasing amounts of service-specific operational work.</li>
+    <li>Escalations become the normal mechanism for resolving reliability issues.</li>
+    <li>SRE capacity becomes the limiting factor for reliability improvement.</li>
+    <li>Teams become less capable of independently operating their own services.</li>
+  </ul>
+
+  <p>
+    This is the escalation trap.
+  </p>
+
+  <p>
+    The problem isn't that SRE helps teams. That is part of the value SRE should
+    provide.
+  </p>
+
+  <p>
+    The problem is when helping teams gradually becomes
+    <strong>owning reliability for teams.</strong>
+  </p>
+
+  <p>
+    A useful leadership test is:
+  </p>
+
+  <blockquote>
+    If SRE stopped answering application-specific questions tomorrow, which teams
+    would still know how to operate their services safely?
+  </blockquote>
+
+  <p>
+    <strong>SRE should be the force multiplier for reliability—not the shock
+    absorber for organizational ownership problems.</strong>
+  </p>
+
+  <h2>What Service Ownership Really Means</h2>
+
+  <p>
+    Saying "the service team owns reliability" is easy. Making that statement
+    real requires much more than putting a team name next to a service in a
+    service catalog.
+  </p>
+
+  <p>Real service ownership includes at least five areas.</p>
+
+  <h3>1. Reliability objectives</h3>
+
+  <p>
+    The service team should understand what level of reliability the service
+    actually needs and why that level matters to customers and the business.
+    Ownership means understanding the SLO—not simply reporting it.
+  </p>
+
+  <h3>2. Operational behavior</h3>
+
+  <p>
+    The team should understand how the service behaves in production, what
+    signals indicate degradation, how failures are handled, and what actions
+    are available when reliability deteriorates.
+  </p>
+
+  <h3>3. Reliability risk</h3>
+
+  <p>
+    Teams need to understand the risks created by their architecture, dependencies,
+    deployments, capacity constraints, and operational practices.
+  </p>
+
+  <h3>4. Production learning</h3>
+
+  <p>
+    Reliability ownership continues after an incident. The team should be
+    responsible for learning from failures and improving the service rather
+    than repeatedly depending on another function to compensate for the same
+    weakness.
+  </p>
+
+  <h3>5. Capacity for reliability work</h3>
+
+  <p>
+    Ownership is meaningless if teams have no capacity to act on reliability risk.
+    If reliability work is always postponed behind feature delivery, the
+    organization has not really created ownership. It has created responsibility
+    without capacity.
+  </p>
+
+  <p>
+    This leads to an important principle:
+  </p>
+
+  <blockquote>
+    The team accountable for reliability must have enough control, capability
+    and context to influence the reliability outcome.
+  </blockquote>
+
+  <p>
+    Ownership does not mean isolation. A service team can depend heavily on
+    platform, SRE, security, networking, data, or other capabilities while
+    remaining accountable for the service outcome.
+  </p>
+
+  <p>
+    A simple test is to ask:
+  </p>
+
+  <ol>
+    <li>Who owns the service outcome?</li>
+    <li>Who can make the decisions that influence it?</li>
+    <li>Who can remediate the major reliability risks?</li>
+    <li>Who has the capability to operate the service safely?</li>
+    <li>Who has capacity to improve it?</li>
+  </ol>
+
+  <p>
+    If the answers point to different groups with no clear decision authority,
+    ownership is probably still incomplete.
+  </p>
+
+  <h2>Responsibility ≠ Accountability</h2>
+
+  <p>
+    This distinction is one of the most important—and most frequently missed—
+    parts of reliability ownership.
+  </p>
+
+  <p>
+    Multiple teams can have responsibility for contributing to reliability.
+    Accountability still needs to be explicit.
+  </p>
+
+  <p>
+    Consider a service with an application layer, database, messaging system,
+    network dependency, and shared platform.
+  </p>
+
+  <p>
+    Each component team can be locally correct while the customer experience
+    still fails.
+  </p>
+
+  <p>
+    The database team can say the database is healthy. The network team can say
+    the network is healthy. The platform team can say the cluster is healthy.
+    The application team can say the application is behaving as designed.
+  </p>
+
+  <p>
+    Yet the customer cannot complete the transaction.
+  </p>
+
+  <p>
+    Someone must still own that outcome.
+  </p>
+
+  <p>A useful accountability chain is:</p>
+
+  <p style="font-size: var(--font-size-lg); text-align: center;">
+    <strong>
+      Customer outcome → Service → Engineering team → SRE / Platform enablement
+      → Engineering leadership
+    </strong>
+  </p>
+
+  <p>
+    The service team remains accountable for the service outcome even when other
+    teams provide critical capabilities.
+  </p>
+
+  <p>
+    SRE should provide reliability expertise and systemic leverage, but should
+    not automatically inherit accountability simply because SRE has deeper
+    reliability expertise.
+  </p>
+
+  <p>
+    This creates an important maturity shift:
+  </p>
+
+  <ol>
+    <li><strong>Level 1 — SRE Does It:</strong> SRE performs much of the reliability work.</li>
+    <li><strong>Level 2 — SRE and Teams Do It Together:</strong> capability begins transferring.</li>
+    <li><strong>Level 3 — Teams Own It, SRE Enables:</strong> service ownership becomes real.</li>
+    <li><strong>Level 4 — Reliability Becomes an Engineering Capability:</strong> reliability is embedded into how engineering operates.</li>
+  </ol>
+
+  <p>
+    Good SRE leadership is not about making SRE indispensable.
+    <strong>It is about making reliability scalable.</strong>
+  </p>
+
+  <h2>The Role of Platform Engineering</h2>
+
+  <p>
+    Platform engineering introduces another potential ownership boundary.
+    A platform may provide infrastructure, deployment capabilities,
+    observability, security controls, automation, and operational guardrails.
+  </p>
+
+  <p>
+    That does not mean the platform team owns the reliability of every service
+    running on the platform.
+  </p>
+
+  <p style="font-size: var(--font-size-lg); text-align: center;">
+    <strong>
+      Platform owns the paved road. Product teams own the journey and outcome.
+    </strong>
+  </p>
+
+  <p>
+    A good platform reduces cognitive load. It makes reliable engineering
+    practices easier to adopt without requiring every product team to become
+    an expert in every underlying technology.
+  </p>
+
+  <p>A useful platform reliability contract includes:</p>
+
+  <ul>
+    <li>Reliable and supported platform capabilities.</li>
+    <li>Safe patterns that are easy to adopt.</li>
+    <li>Automation for common reliability practices.</li>
+    <li>Appropriate guardrails.</li>
+    <li>Visibility into platform behavior and dependencies.</li>
+  </ul>
+
+  <p>
+    The dangerous organizational assumption is:
+  </p>
+
+  <blockquote>
+    If we put it on the platform, the platform team owns it.
+  </blockquote>
+
+  <p>
+    That model simply moves the ownership problem to another team.
+  </p>
+
+  <p>
+    A better decision rule is straightforward:
+  </p>
+
+  <p>
+    <strong>
+      Reusable capability is a platform candidate. Service-specific risk and
+      behavior remain with the service team.
+    </strong>
+  </p>
+
+  <p>
+    The highest-leverage platform principle is:
+  </p>
+
+  <blockquote>
+    Solve once. Scale many times.
+  </blockquote>
+
+  <p>
+    Platform should make reliability easier—not make product teams less accountable.
+  </p>
+
+  <h2>What Engineering Leadership Must Own</h2>
+
+  <p>
+    Reliability ownership is not only an engineering-team concern.
+    Leadership owns the conditions in which reliability decisions are made.
+  </p>
+
+  <p>That includes:</p>
+
+  <ul>
+    <li>Setting priorities.</li>
+    <li>Making trade-offs explicit.</li>
+    <li>Accepting business risk when appropriate.</li>
+    <li>Funding reliability capacity.</li>
+    <li>Removing organizational blockers.</li>
+    <li>Addressing systemic organizational failure modes.</li>
+  </ul>
+
+  <p>
+    Leadership should not become the operational owner of every reliability
+    problem. But leadership must own the environment in which teams are expected
+    to make reliability decisions.
+  </p>
+
+  <p>Five questions are particularly useful:</p>
+
+  <ol>
+    <li>Who is accountable for the customer outcome?</li>
+    <li>Does that team have enough control to influence the outcome?</li>
+    <li>Does the team have the capability and capacity to act?</li>
+    <li>Where are trade-offs being made explicitly?</li>
+    <li>What organizational blocker prevents the right team from owning the problem?</li>
+  </ol>
+
+  <p style="font-size: var(--font-size-lg); text-align: center;">
+    <strong>
+      Service teams own the outcome. Platform enables the path.
+      SRE provides leverage. Leadership owns the environment.
+    </strong>
+  </p>
+
+  <h2>A Practical Reliability Ownership Model</h2>
+
+  <p>
+    A practical model can be built around five questions:
+  </p>
+
+  <ol>
+    <li>Who owns the service outcome?</li>
+    <li>Who provides the capability?</li>
+    <li>Who provides the expertise?</li>
+    <li>Who makes the trade-off?</li>
+    <li>Who removes the blocker?</li>
+  </ol>
+
+  <p>This naturally creates four layers:</p>
+
+  <ol>
+    <li><strong>Service Teams</strong> — own service outcomes and reliability decisions.</li>
+    <li><strong>Platform Engineering</strong> — provides reusable capabilities and the paved road.</li>
+    <li><strong>SRE</strong> — provides reliability expertise, standards, and systemic leverage.</li>
+    <li><strong>Engineering Leadership</strong> — governs priorities, investment, and organizational decisions.</li>
+  </ol>
+
+  <div style="overflow-x: auto; margin: var(--spacing-xl) 0;">
+    <table>
+      <thead>
+        <tr>
+          <th>Reliability Area</th>
+          <th>Service Team</th>
+          <th>SRE</th>
+          <th>Platform</th>
+          <th>Leadership</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Service reliability</td>
+          <td>Accountable</td>
+          <td>Enable</td>
+          <td>Support</td>
+          <td>Govern</td>
+        </tr>
+        <tr>
+          <td>Service SLO</td>
+          <td>Own</td>
+          <td>Facilitate</td>
+          <td>Support</td>
+          <td>Review where material</td>
+        </tr>
+        <tr>
+          <td>Application resilience</td>
+          <td>Own</td>
+          <td>Advise</td>
+          <td>Provide capabilities</td>
+          <td>Prioritize investment</td>
+        </tr>
+        <tr>
+          <td>Runtime platform</td>
+          <td>Consume</td>
+          <td>Influence requirements</td>
+          <td>Own</td>
+          <td>Fund</td>
+        </tr>
+        <tr>
+          <td>Incident response</td>
+          <td>Own service response</td>
+          <td>Enable / coordinate</td>
+          <td>Support</td>
+          <td>Remove systemic blockers</td>
+        </tr>
+        <tr>
+          <td>Cross-service reliability</td>
+          <td>Participate</td>
+          <td>Drive systemic improvement</td>
+          <td>Participate</td>
+          <td>Resolve organizational issues</td>
+        </tr>
+        <tr>
+          <td>Reliability standards</td>
+          <td>Adopt</td>
+          <td>Define / enable</td>
+          <td>Implement</td>
+          <td>Reinforce</td>
+        </tr>
+        <tr>
+          <td>Reliability investment</td>
+          <td>Propose</td>
+          <td>Advise</td>
+          <td>Propose</td>
+          <td>Prioritize</td>
+        </tr>
+        <tr>
+          <td>Business risk acceptance</td>
+          <td>Technical context</td>
+          <td>Reliability context</td>
+          <td>Platform context</td>
+          <td>Own decision</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>
+    The decision rule is simple:
+  </p>
+
+  <blockquote>
+    Who can make the change that actually reduces the risk?
+  </blockquote>
+
+  <p>
+    That team should have the authority and capability required to act.
+    <strong>Escalation does not transfer accountability.</strong>
+  </p>
+
+  <p>
+    Reliability ownership should also be visible in the engineering system:
+    service catalogs, on-call models, SLO reviews, architecture decisions,
+    incident follow-ups, investment planning, and leadership reviews should
+    reinforce the same ownership model.
+  </p>
+
+  <h2>Common Reliability Ownership Anti-Patterns</h2>
+
+  <h3>1. SRE owns reliability</h3>
+
+  <p>
+    This creates a specialist dependency and prevents reliability capability
+    from spreading into engineering teams.
+  </p>
+
+  <h3>2. The team owns it because they are on call</h3>
+
+  <p>
+    Being on call creates an operational responsibility. It does not automatically
+    mean the team has strategic accountability, authority, or capacity.
+  </p>
+
+  <h3>3. Platform owns everything underneath</h3>
+
+  <p>
+    Infrastructure ownership does not equal ownership of application outcomes.
+  </p>
+
+  <h3>4. Everyone owns everything</h3>
+
+  <p>
+    Shared responsibility without explicit accountability often means nobody can
+    make the final decision.
+  </p>
+
+  <h3>5. SLOs create ownership</h3>
+
+  <p>
+    An SLO measures an outcome. It does not establish decision rights, capacity,
+    or accountability by itself.
+  </p>
+
+  <h3>6. The incident commander owns the incident</h3>
+
+  <p>
+    The incident commander coordinates response. The service team remains
+    accountable for the service and the engineering improvements that follow.
+  </p>
+
+  <h3>7. The person with the deepest expertise owns the problem</h3>
+
+  <p>
+    Expertise should influence decisions. It should not automatically transfer
+    ownership to the most technically knowledgeable person in the room.
+  </p>
+
+  <h3>8. Reliability is everyone's responsibility</h3>
+
+  <p>
+    Everyone contributing to reliability is healthy. Saying that everyone is
+    accountable for the outcome is not.
+  </p>
+
+  <h3>9. A fixed incident means a fixed problem</h3>
+
+  <p>
+    Recovery restores service. Ownership requires asking why the failure happened,
+    what enabled it, and who has the authority to prevent recurrence.
+  </p>
+
+  <p>
+    These anti-patterns share one characteristic:
+  </p>
+
+  <p>
+    <strong>
+      The organization has distributed responsibility without making
+      accountability explicit.
+    </strong>
+  </p>
+
+  <h2>A Leadership Checklist for Reliability Ownership</h2>
+
+  <p>
+    Engineering leaders can use the following checklist during reliability reviews:
+  </p>
+
+  <ol>
+    <li><strong>Name the accountable team.</strong> Every critical service should have one.</li>
+    <li><strong>Confirm control.</strong> The accountable team must be able to influence the outcome.</li>
+    <li><strong>Confirm capability.</strong> Teams need the skills and tools required to operate safely.</li>
+    <li><strong>Fund reliability.</strong> Ownership without capacity is not ownership.</li>
+    <li><strong>Make SRE create leverage.</strong> SRE should increase organizational capability, not absorb every problem.</li>
+    <li><strong>Make platform create autonomy.</strong> The platform should reduce friction rather than create another dependency.</li>
+    <li><strong>Turn incidents into organizational learning.</strong> Learning should change systems, practices, or decisions.</li>
+    <li><strong>Make reliability trade-offs explicit.</strong> Risk acceptance should be visible rather than accidental.</li>
+  </ol>
+
+  <p>A useful leadership review can ask:</p>
+
+  <ol>
+    <li>Who owns each of our most business-critical services?</li>
+    <li>Can that team actually change the major risks?</li>
+    <li>What reliability decisions can the team make without escalation?</li>
+    <li>Where is SRE doing work that should eventually become team capability?</li>
+    <li>Where is the platform reducing cognitive load?</li>
+    <li>Which recurring incidents reveal an ownership problem?</li>
+    <li>Where are reliability investments being deferred?</li>
+    <li>Which risks require an explicit leadership decision?</li>
+    <li>Would ownership remain clear if key individuals left?</li>
+    <li>Can the organization explain reliability accountability without drawing an organizational map?</li>
+  </ol>
+
+  <p>
+    A simple maturity progression is:
+  </p>
+
+  <ol>
+    <li><strong>Level 1 — SRE Does It:</strong> SRE absorbs reliability work.</li>
+    <li><strong>Level 2 — SRE and Teams Do It Together:</strong> capability begins transferring.</li>
+    <li><strong>Level 3 — Teams Own It, SRE Enables:</strong> service ownership becomes real.</li>
+    <li><strong>Level 4 — Reliability Becomes an Engineering Capability:</strong> reliability becomes embedded in engineering.</li>
+  </ol>
+
+  <p>
+    One practical exercise is to take the five services most critical to the
+    business and document:
+  </p>
+
+  <ul>
+    <li>Service owner</li>
+    <li>Business outcome</li>
+    <li>SLO</li>
+    <li>Top reliability risk</li>
+    <li>Critical dependency</li>
+    <li>Who can remediate the risk</li>
+    <li>SRE role</li>
+    <li>Platform role</li>
+    <li>Leadership decision required</li>
+  </ul>
+
+  <p>
+    If those answers are difficult to produce, the organization probably has
+    an ownership problem—not simply a documentation problem.
+  </p>
+
+  <h2>The Leadership Question That Matters</h2>
+
+  <p>
+    Can the organization reliably produce reliable systems without depending
+    on a small group of experts to rescue it?
+  </p>
+
+  <p>
+    A mature organization does not eliminate SRE.
+  </p>
+
+  <p>
+    It does not eliminate platform engineering.
+  </p>
+
+  <p>
+    And it does not simply push operational work onto product teams and call
+    that ownership.
+  </p>
+
+  <p>
+    Instead, it creates clear accountability and gives each part of the
+    engineering system the capabilities required to contribute effectively.
+  </p>
+
+  <p>
+    Service teams own the decisions they control.
+  </p>
+
+  <p>
+    Platform engineering makes reliable engineering easier to scale.
+  </p>
+
+  <p>
+    SRE provides expertise, standards, and leverage.
+  </p>
+
+  <p>
+    Leadership creates the priorities, investment, and decision rights that
+    make those responsibilities sustainable.
+  </p>
+
+  <p>
+    The ultimate test is uncomfortable but useful:
+  </p>
+
+  <blockquote>
+    If your most experienced SREs were unavailable tomorrow, would your
+    engineering organization still know who owns reliability—and have the
+    capability to act?
+  </blockquote>
+
+  <p>
+    If the answer is uncertain, the problem may not be your SRE capacity.
+  </p>
+
+  <p>
+    <strong>It may be your ownership model.</strong>
+  </p>
+
+  <h2>Closing Perspective</h2>
+
+  <p>
+    Reliability is a shared outcome.
+  </p>
+
+  <p>
+    Accountability should still be explicit.
+  </p>
+
+  <p>
+    Service teams own the decisions they control. Platform engineering makes
+    reliable engineering easier to scale. SRE provides expertise, standards,
+    and leverage. Leadership creates the priorities, investment, and decision
+    rights that make those responsibilities sustainable.
+  </p>
+
+  <p>
+    The objective is not to create an organization where SRE is indispensable.
+  </p>
+
+  <p>
+    The objective is to create an organization where <strong>reliability is.</strong>
+  </p>
+
+  <p>
+    <strong>Reliability scales when ownership scales with it.</strong>
+  </p>
+
+  <p>
+    If your most experienced SREs were unavailable tomorrow, would your
+    engineering organization still know who owns reliability—and have the
+    capability to act?
+  </p>
+
+</article>
+      </div>
+    </section>
+
+    <!-- ARTICLE NAVIGATION -->
+    <section class="section section-alt">
+      <div class="container-sm">
+        <div class="card text-center">
+          <h3>Continue Exploring Reliability Leadership</h3>
+          <p>
+            Explore more practical perspectives on reliability, engineering leadership,
+            platform strategy and operational excellence.
+          </p>
+          <a href="../" class="btn btn-primary">Explore Insights</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>The SRE Leadership Hub</h3>
+          <p>Building reliable, scalable and intelligent engineering organizations.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../insights/">Insights</a></li>
+            <li><a href="../../resources/">Resources</a></li>
+            <li><a href="../../advisory/">Advisory</a></li>
+            <li><a href="../../newsletter/">Newsletter</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Topics</h4>
+          <ul>
+            <li><a href="../">SRE</a></li>
+            <li><a href="../">Platform Engineering</a></li>
+            <li><a href="../">Cloud</a></li>
+            <li><a href="../">AI Operations</a></li>
+            <li><a href="../">Engineering Leadership</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-divider">
+        <div class="footer-bottom">
+          <p>&copy; 2026 The SRE Leadership Hub. All rights reserved.</p>
+          <p>
+            <a href="../../about/">About</a> |
+            <a href="../../contact/">Contact</a> | <a href="../../privacy/">Privacy Policy</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
+
