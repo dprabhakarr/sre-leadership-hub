@@ -29,28 +29,6 @@
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../../css/components.css">
   <link rel="stylesheet" href="../../css/responsive.css">
-  <style>
-    /* Resilient by Design article layout */
-    .article-header {
-      margin-bottom: var(--spacing-2xl);
-    }
-
-    .article-hero {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto var(--spacing-3xl);
-      overflow: hidden;
-      border-radius: var(--radius-lg);
-    }
-
-    .article-hero img {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      object-fit: contain;
-    }
-  </style>
 
   <!-- Article structured data -->
   <script type="application/ld+json">
@@ -118,36 +96,38 @@
           <span>Resilient by Design: Building Systems That Expect Failure</span>
         </div>
 
-        <article class="article">
+        <article>
+          <header style="margin-bottom: var(--spacing-2xl);">
+            <div class="article-meta" style="margin-bottom: var(--spacing-lg);">
+              <span class="badge badge-primary">SRE / Engineering Leadership</span>
+              <span>September 4, 2026</span>
+              <span>15 min read</span>
+            </div>
 
-    <header class="article-header">
+            <h1 style="margin-bottom: var(--spacing-lg);">
+              Resilient by Design: Building Systems That Expect Failure
+            </h1>
 
-        <div class="article-category">
-            SRE / Engineering Leadership
-        </div>
+            <p style="font-size: var(--font-size-lg); color: var(--color-text-secondary);">
+              Why technology resilience is only the foundation?and business resilience is the outcome.
+            </p>
+          </header>
+        </article>
+      </div>
+    </section>
 
-        <h1>Resilient by Design: Building Systems That Expect Failure</h1>
+    <!-- ARTICLE CONTENT -->
+    <section class="section">
+      <div class="container-sm">
+        <article>
 
-        <p class="article-subtitle">
-            Why technology resilience is only the foundation—and business resilience is the outcome.
-        </p>
-
-        <div class="article-meta">
-            <span>September 4, 2026</span>
-            <span>15 min read</span>
-        </div>
-
-    </header>
-
-    <div class="article-hero">
-        <img
+          <img
             src="../../assets/articles/resilient-by-design.png"
             alt="Resilient by Design: technology resilience, business resilience and customer outcomes"
-            loading="eager"
-        >
-    </div>
+            style="width: 100%; height: auto; border-radius: var(--radius-lg); margin-bottom: var(--spacing-3xl);"
+          >
 
-    <div class="article-content">
+
 
         <p class="lead">
             Most engineering organizations are very good at designing systems that are highly available.
@@ -1248,9 +1228,7 @@
             </li>
         </ul>
 
-    </div>
-
-</article>
+        </article>
       </div>
     </section>
 
