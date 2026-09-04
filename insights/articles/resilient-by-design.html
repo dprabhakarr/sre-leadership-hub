@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6XQ3R530EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6XQ3R530EW');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Resilient by design means more than highly available infrastructure. Learn how engineering leaders connect technology resilience to essential business services, graceful degradation, dependency isolation, recovery, and business continuity.">
+  <meta name="theme-color" content="#2c3e7f">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Resilient by Design: Building Systems That Expect Failure">
+  <meta property="og:description" content="Resilient by design means more than highly available infrastructure. Learn how engineering leaders connect technology resilience to essential business services, graceful degradation, dependency isolation, recovery, and business continuity.">
+  <meta property="og:url" content="https://sreleadershiphub.com/insights/articles/resilient-by-design.html">
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://sreleadershiphub.com/insights/articles/resilient-by-design.html">
+
+  <title>Resilient by Design: Building Systems That Expect Failure | SRE Leadership Hub</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+
+  <!-- Article structured data -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Resilient by Design: Building Systems That Expect Failure",
+  "description": "How engineering leaders can build a reliability operating model that connects business priorities, engineering ownership, platforms, operations and leadership.",
+  "datePublished": "2026-09-04",
+  "author": {
+    "@type": "Organization",
+    "name": "The SRE Leadership Hub"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "The SRE Leadership Hub"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sreleadershiphub.com/insights/articles/reliability-operating-model.html"
+  }
+}
+  </script>
+
+<script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5536754788296398' crossorigin='anonymous'></script>
+</head>
+
+<body>
+  <a href="#main" class="skip-navigation">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="header-container">
+        <a href="../../" class="logo">The SRE <span class="logo-emphasis">Leadership</span> Hub</a>
+
+        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span>☰</span>
+        </button>
+
+        <nav>
+          <ul>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../">Insights</a></li>
+            <li><a href="../../resources/">Resources</a></li>
+            <li><a href="../../advisory/">Advisory</a></li>
+            <li><a href="../../newsletter/">Newsletter</a></li>
+            <li><a href="../../about/">About</a></li>
+            <li><a href="../../contact/">Contact</a></li>
+            <li><a href="../../privacy/">Privacy Policy</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ARTICLE HEADER -->
+    <section class="section section-alt">
+      <div class="container-sm">
+        <div class="breadcrumb">
+          <a href="../">Insights</a>
+          <span>/</span>
+          <span>The Reliability Operating Model: How Engineering Leaders Build Organizations That Scale</span>
+        </div>
+
+        <article class="article">
+
+    <header class="article-header">
+
+        <div class="article-category">
+            SRE / Engineering Leadership
+        </div>
+
+        <h1>Resilient by Design: Building Systems That Expect Failure</h1>
+
+        <p class="article-subtitle">
+            Why technology resilience is only the foundation—and business resilience is the outcome.
+        </p>
+
+        <div class="article-meta">
+            <span>September 4, 2026</span>
+            <span>15 min read</span>
+        </div>
+
+    </header>
+
+    <div class="article-hero">
+        <img
+            src="../../assets/articles/resilient-by-design.png"
+            alt="Resilient by Design: technology resilience, business resilience and customer outcomes"
+            loading="eager"
+        >
+    </div>
+
+    <div class="article-content">
+
+        <p class="lead">
+            Most engineering organizations are very good at designing systems that are highly available.
+        </p>
+
+        <p>
+            Multiple availability zones. Redundant databases. Automated failover.
+            Backups. Disaster recovery environments. Observability. Incident response.
+            On-call rotations.
+        </p>
+
+        <p>
+            All of these capabilities matter.
+        </p>
+
+        <p>
+            But they can create a dangerous illusion: that technology resilience and
+            business resilience are the same thing.
+        </p>
+
+        <p>
+            They are not.
+        </p>
+
+        <p>
+            A system can be technically redundant and still leave customers unable to
+            complete the transaction that matters to them. A platform can remain
+            available while an essential business service is effectively unavailable.
+            A recovery procedure can work exactly as designed while the business
+            continues to absorb customer, financial, regulatory, or reputational harm.
+        </p>
+
+        <p>
+            <strong>Technology resilience is the means. Business resilience is the outcome.</strong>
+        </p>
+
+        <p>
+            Resilient by design means building systems that expect failure, contain it,
+            absorb it, degrade intelligently, recover predictably, and learn from it.
+        </p>
+
+        <h2>1. The Resilience Illusion</h2>
+
+        <p>
+            Reliability engineering often starts with a reasonable question:
+            “How do we keep the system available?”
+        </p>
+
+        <p>
+            Resilience requires a broader question:
+            <strong>“What must continue to work when the system cannot?”</strong>
+        </p>
+
+        <p>
+            That distinction changes architecture decisions.
+        </p>
+
+        <p>
+            If the objective is infrastructure availability, teams naturally focus on
+            servers, clusters, databases, networks and cloud regions.
+        </p>
+
+        <p>
+            If the objective is business resilience, the conversation moves upward:
+            customer journeys, essential services, transaction flows, operational
+            processes, people, third parties, recovery decisions and business impact.
+        </p>
+
+        <p>
+            The difference becomes visible during disruption.
+        </p>
+
+        <p>
+            When everything works, a highly available architecture and a resilient
+            business can look almost identical.
+        </p>
+
+        <p>
+            When something fails, they separate quickly.
+        </p>
+
+        <blockquote>
+            <strong>The real test of resilience is not what happens when everything works.
+            It is what the customer can still accomplish when something doesn't.</strong>
+        </blockquote>
+
+        <h2>2. Reliability Is Not Resilience</h2>
+
+        <p>
+            Reliability and resilience are closely related, but they answer different questions.
+        </p>
+
+        <p>
+            Reliability asks whether a service performs consistently within defined expectations.
+        </p>
+
+        <p>
+            Resilience asks what happens when those expectations are violated.
+        </p>
+
+        <p>
+            Reliability tries to reduce failure probability.
+        </p>
+
+        <p>
+            Resilience assumes that some failures will still happen.
+        </p>
+
+        <p>
+            That leads to a useful leadership distinction:
+        </p>
+
+        <ul>
+            <li><strong>Reliability:</strong> reduce the frequency and severity of failure.</li>
+            <li><strong>Resilience:</strong> limit the consequences when failure occurs.</li>
+            <li><strong>Business resilience:</strong> protect the outcomes that matter despite disruption.</li>
+        </ul>
+
+        <p>
+            Strong organizations need all three.
+        </p>
+
+        <p>
+            A resilient architecture does not attempt to eliminate every possible failure.
+            It creates boundaries around failure.
+        </p>
+
+        <p>
+            The objective is not perfection.
+        </p>
+
+        <p>
+            The objective is controlled imperfection.
+        </p>
+
+        <h2>3. Technology Resilience vs. Business Resilience</h2>
+
+        <p>
+            Technology resilience describes whether the technology estate can withstand
+            disruption: infrastructure failures, database failures, network problems,
+            capacity exhaustion, bad deployments, dependency failures, data corruption,
+            cloud control-plane issues or regional disruption.
+        </p>
+
+        <p>
+            Business resilience asks whether the business can continue delivering its
+            most important services despite those disruptions.
+        </p>
+
+        <p>
+            A useful way to see the relationship is:
+        </p>
+
+        <div class="framework-box">
+            <p><strong>Customer outcome</strong></p>
+            <p>↓</p>
+            <p><strong>Essential business service</strong></p>
+            <p>↓</p>
+            <p><strong>Customer journey</strong></p>
+            <p>↓</p>
+            <p><strong>Application / service</strong></p>
+            <p>↓</p>
+            <p><strong>Platform</strong></p>
+            <p>↓</p>
+            <p><strong>Infrastructure / dependencies / third parties</strong></p>
+        </div>
+
+        <p>
+            The customer does not consume infrastructure.
+        </p>
+
+        <p>
+            <strong>The customer consumes a service.</strong>
+        </p>
+
+        <p>
+            That means resilience has to be evaluated from the top of the stack down,
+            not only from the bottom up.
+        </p>
+
+        <p>
+            Technology resilience is the foundation. Application resilience extends it.
+            Service resilience makes it meaningful. Business resilience makes it matter.
+            And customer resilience is the outcome we ultimately care about.
+        </p>
+
+        <h2>4. Start With the Essential Business Service</h2>
+
+        <p>
+            One of the biggest mistakes in resilience programs is starting with infrastructure inventories.
+        </p>
+
+        <p>
+            Teams catalogue applications, servers, databases, queues, APIs and cloud services.
+            The inventory becomes extensive.
+        </p>
+
+        <p>
+            But the key question remains unanswered:
+            <strong>Which business services must continue, and what level of disruption can the business actually tolerate?</strong>
+        </p>
+
+        <p>
+            Start with the service.
+        </p>
+
+        <p>
+            For a bank, examples might include access to money, payments, transfers,
+            card transactions, trading, settlement, customer authentication and other
+            critical financial services.
+        </p>
+
+        <p>
+            Not every function deserves the same resilience target.
+        </p>
+
+        <p>
+            A reporting dashboard being unavailable for two hours is fundamentally
+            different from customers being unable to access their money on payday.
+        </p>
+
+        <p>
+            Resilience therefore requires prioritization.
+        </p>
+
+        <p>
+            For each essential service, leaders should understand:
+        </p>
+
+        <ul>
+            <li>What customer outcome does the service protect?</li>
+            <li>How long can the service be disrupted?</li>
+            <li>What level of degraded service is acceptable?</li>
+            <li>Which technology components support it?</li>
+            <li>Which people and operational processes are required?</li>
+            <li>Which third parties are involved?</li>
+            <li>What alternative path exists if the primary path fails?</li>
+            <li>What is the business impact if recovery takes longer than expected?</li>
+        </ul>
+
+        <p>
+            This is where resilience becomes an engineering leadership problem rather than an infrastructure checklist.
+        </p>
+
+        <h2>5. Case Study: Barclays — When Technology Concentration Becomes Business Risk</h2>
+
+        <p>
+            The Barclays incident in early 2025 is a useful example because the
+            technology failure and the business impact were tightly connected.
+        </p>
+
+        <p>
+            Barclays told the UK Parliament's Treasury Committee that the root cause
+            of the January 31, 2025 incident was a software problem in a critical
+            module of its UK mainframe operating system. The bank said the problem
+            caused progressively severe degradation in mainframe processing performance.
+        </p>
+
+        <p>
+            That mainframe supported core banking applications including deposits,
+            overdrafts and debit cards across Barclays UK, as well as services for
+            other parts of the bank.
+        </p>
+
+        <p>
+            The incident therefore was not simply a “mainframe outage.”
+        </p>
+
+        <p>
+            It was a resilience problem at the boundary between a technology dependency
+            and essential customer services.
+        </p>
+
+        <p>
+            The UK Treasury Committee subsequently reported that 56% of online payment
+            attempts during the incident failed because of severe degradation in
+            mainframe processing performance.
+        </p>
+
+        <p>
+            That distinction matters.
+        </p>
+
+        <p>
+            The important question is not:
+            <em>“Was the mainframe highly reliable?”</em>
+        </p>
+
+        <p>
+            The more important question is:
+            <strong>“What happens to essential customer services when a critical dependency becomes impaired?”</strong>
+        </p>
+
+        <p>
+            Barclays' broader evidence to Parliament also describes resilience
+            mechanisms such as alternative channels, duplicated systems, stand-in
+            processing, manual processing, identification of critical banking services,
+            and senior accountability for those services.
+        </p>
+
+        <p>
+            The lesson for engineering leaders is not that legacy technology is inherently bad.
+        </p>
+
+        <p>
+            The lesson is that <strong>technology concentration becomes business risk
+            when the failure of one component can cross multiple service boundaries.</strong>
+        </p>
+
+        <blockquote>
+            <strong>Do not ask only where your single points of failure are.
+            Ask which customer outcomes depend on them.</strong>
+        </blockquote>
+
+        <h2>6. Case Study: AWS — When Shared Dependencies Defeat Apparent Redundancy</h2>
+
+        <p>
+            The October 2025 AWS disruption provides another important resilience lesson.
+        </p>
+
+        <p>
+            AWS reported that increased error rates in US-EAST-1 were triggered by DNS
+            resolution issues involving regional DynamoDB endpoints.
+        </p>
+
+        <p>
+            Resolving that initial issue did not immediately restore everything.
+        </p>
+
+        <p>
+            AWS reported that a small subset of internal subsystems remained impaired.
+            EC2 instance launches were subsequently throttled, and additional services
+            experienced downstream effects.
+        </p>
+
+        <p>
+            AWS later described an impairment in the EC2 subsystem responsible for
+            launching instances because of its dependency on DynamoDB. Network Load
+            Balancer health checks were also affected, producing connectivity problems
+            across multiple services.
+        </p>
+
+        <p>
+            This is the classic resilience trap:
+        </p>
+
+        <p>
+            <strong>Redundancy at one layer does not guarantee independence at the dependency layer.</strong>
+        </p>
+
+        <p>
+            Two services can be deployed independently and still share a dependency
+            that creates a common failure domain.
+        </p>
+
+        <p>
+            This is why architecture reviews that only ask “Do we have redundancy?”
+            are incomplete.
+        </p>
+
+        <p>
+            Leaders should also ask:
+        </p>
+
+        <ul>
+            <li>What do the redundant paths still share?</li>
+            <li>Which control-plane services do they depend on?</li>
+            <li>Which identity, DNS, networking or data services are common?</li>
+            <li>Can a degraded dependency create a queue or backlog?</li>
+            <li>Can recovery itself overload another dependency?</li>
+        </ul>
+
+        <p>
+            Resilience is not about having more components.
+        </p>
+
+        <p>
+            It is about having meaningful failure boundaries.
+        </p>
+
+        <h2>7. Case Study: CrowdStrike — When Change Becomes a Failure Domain</h2>
+
+        <p>
+            The July 2024 CrowdStrike incident demonstrates a different category of
+            resilience risk: change itself can become a failure domain.
+        </p>
+
+        <p>
+            CrowdStrike's preliminary post-incident report described a problematic
+            Rapid Response Content update that caused Windows systems to crash.
+            The company identified a defect in its content validation process that
+            allowed the problematic content to pass through.
+        </p>
+
+        <p>
+            The engineering lesson extends well beyond endpoint security.
+        </p>
+
+        <p>
+            A deployment pipeline can be highly automated, observable and fast—and
+            still have an enormous blast radius if the change is allowed to reach too
+            many systems before the failure becomes visible.
+        </p>
+
+        <p>
+            This is why resilient change management includes:
+        </p>
+
+        <ul>
+            <li>Staged and ring-based deployment.</li>
+            <li>Canary populations.</li>
+            <li>Strong validation before production exposure.</li>
+            <li>Fast rollback or recovery mechanisms.</li>
+            <li>Customer control where practical.</li>
+            <li>Monitoring designed to detect systemic impact.</li>
+            <li>Fault injection and stability testing.</li>
+        </ul>
+
+        <p>
+            The deeper lesson is simple:
+        </p>
+
+        <blockquote>
+            <strong>A deployment is not resilient merely because it can be rolled back.
+            It is resilient when the blast radius is controlled before rollback becomes necessary.</strong>
+        </blockquote>
+
+        <h2>8. Design for Failure, Not Just Recovery</h2>
+
+        <p>
+            Many organizations treat resilience as a recovery problem.
+        </p>
+
+        <p>
+            Something fails.
+        </p>
+
+        <p>
+            Engineers restore it.
+        </p>
+
+        <p>
+            Service returns.
+        </p>
+
+        <p>
+            Incident closes.
+        </p>
+
+        <p>
+            But recovery is only one stage.
+        </p>
+
+        <p>
+            A resilient architecture asks what happens before recovery is possible.
+        </p>
+
+        <p>
+            Can the service absorb the failure?
+        </p>
+
+        <p>
+            Can it operate in a degraded mode?
+        </p>
+
+        <p>
+            Can non-critical functions be sacrificed to preserve critical ones?
+        </p>
+
+        <p>
+            Can customers complete the most important part of their journey through another path?
+        </p>
+
+        <p>
+            Designing for failure means making those decisions before the incident.
+        </p>
+
+        <p>
+            <strong>Don't design only for the system you expect to have.
+            Design for the business you need to protect when the system behaves unexpectedly.</strong>
+        </p>
+
+        <h2>9. The Dependency Problem</h2>
+
+        <p>
+            Dependencies are often where resilience assumptions become weakest.
+        </p>
+
+        <p>
+            Teams know their direct dependencies.
+        </p>
+
+        <p>
+            They are often less certain about indirect dependencies.
+        </p>
+
+        <p>
+            A service may depend on an API that depends on a database that depends on
+            a storage system that depends on an identity service that depends on a
+            shared control plane.
+        </p>
+
+        <p>
+            Each individual dependency may appear reasonable.
+        </p>
+
+        <p>
+            The combined dependency graph may be fragile.
+        </p>
+
+        <p>
+            Resilience reviews should therefore examine dependency depth, common-mode
+            failures, third-party concentration and recovery dependencies—not simply
+            uptime commitments.
+        </p>
+
+        <p>
+            A vendor promising 99.99% availability does not make your business resilient
+            if your service has no alternative path when that vendor fails.
+        </p>
+
+        <h2>10. Graceful Degradation Is a Business Decision</h2>
+
+        <p>
+            Graceful degradation is frequently described as a technical capability.
+        </p>
+
+        <p>
+            In reality, it is a business decision expressed through technology.
+        </p>
+
+        <p>
+            When capacity is constrained, which functionality stays?
+        </p>
+
+        <p>
+            When a dependency is unavailable, which transactions are prioritized?
+        </p>
+
+        <p>
+            When the system is overloaded, which customers or operations receive protection?
+        </p>
+
+        <p>
+            These decisions should not be invented at 2 a.m. during an incident.
+        </p>
+
+        <p>
+            Leaders should establish them beforehand.
+        </p>
+
+        <p>
+            A resilient system may deliberately provide less functionality during
+            disruption so that it can continue providing the functionality that matters most.
+        </p>
+
+        <p>
+            That is not failure.
+        </p>
+
+        <p>
+            <strong>That is resilience.</strong>
+        </p>
+
+        <h2>11. For Financial Services, Not All Availability Is Equal</h2>
+
+        <p>
+            Financial services make this distinction especially visible.
+        </p>
+
+        <p>
+            Not every banking feature carries the same consequence when unavailable.
+        </p>
+
+        <p>
+            A customer being unable to change a profile preference is inconvenient.
+        </p>
+
+        <p>
+            A customer being unable to access money, make a payment, transfer funds,
+            complete a settlement or execute a time-critical transaction can create
+            immediate financial harm.
+        </p>
+
+        <p>
+            Trading is another example where timing can materially change the impact
+            of disruption.
+        </p>
+
+        <p>
+            This means availability targets should not be assigned uniformly across
+            the technology estate.
+        </p>
+
+        <p>
+            The resilience requirement should follow the business consequence.
+        </p>
+
+        <div class="framework-box">
+            <p><strong>Ask in this order:</strong></p>
+            <p>What customer outcome matters?</p>
+            <p>What business service delivers it?</p>
+            <p>What level of disruption is tolerable?</p>
+            <p>What technology capability is required to protect it?</p>
+        </div>
+
+        <p>
+            This is also why regulators increasingly frame operational resilience
+            around important business services and impact tolerances rather than
+            infrastructure availability alone.
+        </p>
+
+        <h2>12. Technical Recovery Is Not Business Recovery</h2>
+
+        <p>
+            One of the most dangerous statements during an incident is:
+            “The system is back.”
+        </p>
+
+        <p>
+            Back does not necessarily mean recovered.
+        </p>
+
+        <p>
+            A database may be online while transactions remain queued.
+        </p>
+
+        <p>
+            An API may respond successfully while downstream reconciliation is incomplete.
+        </p>
+
+        <p>
+            A payment platform may be technically available while customers cannot
+            complete their end-to-end journey.
+        </p>
+
+        <p>
+            Backlogs, stale data, duplicate transactions, manual work and customer
+            support queues can continue long after infrastructure recovery.
+        </p>
+
+        <p>
+            Therefore:
+        </p>
+
+        <blockquote>
+            <strong>Technology recovery ≠ Business recovery.</strong>
+        </blockquote>
+
+        <p>
+            Recovery objectives should include business validation:
+        </p>
+
+        <ul>
+            <li>Can customers complete the critical journey?</li>
+            <li>Are transactions processing correctly?</li>
+            <li>Are backlogs under control?</li>
+            <li>Is data consistent?</li>
+            <li>Are downstream and third-party processes functioning?</li>
+            <li>Has customer impact actually stopped?</li>
+        </ul>
+
+        <h2>13. The Human Failure Domain</h2>
+
+        <p>
+            Technology is not the only failure domain.
+        </p>
+
+        <p>
+            People are part of the architecture.
+        </p>
+
+        <p>
+            If only one engineer understands the recovery sequence, that engineer is
+            effectively a single point of failure.
+        </p>
+
+        <p>
+            If only one team can make a critical production change, the organization
+            has created an operational dependency.
+        </p>
+
+        <p>
+            If recovery requires undocumented knowledge, manual commands and
+            exceptional permissions, resilience is weaker than the architecture diagram suggests.
+        </p>
+
+        <p>
+            This is why resilient organizations invest in:
+        </p>
+
+        <ul>
+            <li>Documented recovery procedures.</li>
+            <li>Cross-training.</li>
+            <li>Clear decision rights.</li>
+            <li>Tested runbooks.</li>
+            <li>Incident leadership capability.</li>
+            <li>Automation for repeatable recovery steps.</li>
+            <li>Regular resilience exercises.</li>
+        </ul>
+
+        <p>
+            If recovery requires heroics, the system may be recoverable—but it isn't resilient.
+        </p>
+
+        <h2>14. Resilience Has a Cost</h2>
+
+        <p>
+            Resilience is not free.
+        </p>
+
+        <p>
+            Redundancy costs money.
+        </p>
+
+        <p>
+            Multi-region architecture costs money.
+        </p>
+
+        <p>
+            Additional testing costs engineering capacity.
+        </p>
+
+        <p>
+            Isolation creates complexity.
+        </p>
+
+        <p>
+            Graceful degradation requires product decisions.
+        </p>
+
+        <p>
+            Manual fallbacks require operational readiness.
+        </p>
+
+        <p>
+            The leadership mistake is to ask:
+            “How resilient can we make everything?”
+        </p>
+
+        <p>
+            The better question is:
+            <strong>“Where does additional resilience create enough business value to justify its cost?”</strong>
+        </p>
+
+        <p>
+            This is a portfolio decision, not simply an engineering decision.
+        </p>
+
+        <h2>15. The Resilience Budget</h2>
+
+        <p>
+            A practical way to make this trade-off visible is to establish a resilience
+            budget for each essential business service.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Dimension</th>
+                    <th>Leadership question</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Availability</td>
+                    <td>How much disruption can the service tolerate?</td>
+                </tr>
+                <tr>
+                    <td>Degradation</td>
+                    <td>What functionality can be sacrificed?</td>
+                </tr>
+                <tr>
+                    <td>Recovery</td>
+                    <td>How quickly must the business outcome return?</td>
+                </tr>
+                <tr>
+                    <td>Dependencies</td>
+                    <td>Which common failure domains can affect the service?</td>
+                </tr>
+                <tr>
+                    <td>People</td>
+                    <td>Can recovery succeed without specific individuals?</td>
+                </tr>
+                <tr>
+                    <td>Third parties</td>
+                    <td>What happens if a critical supplier fails?</td>
+                </tr>
+                <tr>
+                    <td>Data</td>
+                    <td>What data loss or inconsistency is acceptable?</td>
+                </tr>
+                <tr>
+                    <td>Customer impact</td>
+                    <td>What harm occurs while recovery is underway?</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            This creates a more useful conversation than simply asking whether a system
+            is “highly available.”
+        </p>
+
+        <h2>16. Test the Business Service, Not Just the Technology</h2>
+
+        <p>
+            Resilience that has never been tested is an assumption.
+        </p>
+
+        <p>
+            Teams often test individual components:
+        </p>
+
+        <ul>
+            <li>Database failover.</li>
+            <li>Instance replacement.</li>
+            <li>Backup restoration.</li>
+            <li>Network failover.</li>
+            <li>Deployment rollback.</li>
+        </ul>
+
+        <p>
+            Those tests are necessary.
+        </p>
+
+        <p>
+            They are not sufficient.
+        </p>
+
+        <p>
+            The stronger test is end-to-end:
+            <strong>Can the essential business service still deliver its intended
+            customer outcome under a severe but plausible disruption?</strong>
+        </p>
+
+        <p>
+            That might mean testing:
+        </p>
+
+        <ul>
+            <li>A critical third-party dependency becoming unavailable.</li>
+            <li>A key technology platform becoming degraded.</li>
+            <li>Reduced staffing during a major incident.</li>
+            <li>A regional infrastructure failure.</li>
+            <li>A failed deployment combined with elevated traffic.</li>
+            <li>Data inconsistency during recovery.</li>
+            <li>Loss of a primary operational channel.</li>
+        </ul>
+
+        <p>
+            The test should follow the customer journey all the way through.
+        </p>
+
+        <p>
+            If the customer outcome fails, the business service is not resilient enough,
+            regardless of how healthy the underlying infrastructure metrics look.
+        </p>
+
+        <h2>17. The Resilient-by-Design Framework</h2>
+
+        <p>
+            A simple five-stage model can help engineering and business leaders evaluate
+            resilience consistently:
+        </p>
+
+        <div class="framework-box">
+            <h3>Prevent → Absorb → Degrade → Recover → Learn</h3>
+
+            <p>
+                <strong>Prevent</strong><br>
+                Reduce the likelihood and severity of failure through engineering
+                controls, testing, safe change and capacity planning.
+            </p>
+
+            <p>
+                <strong>Absorb</strong><br>
+                Keep local failures from becoming systemic failures through isolation,
+                redundancy, dependency boundaries and controlled blast radius.
+            </p>
+
+            <p>
+                <strong>Degrade</strong><br>
+                Preserve the most important customer and business outcomes when full
+                functionality is impossible.
+            </p>
+
+            <p>
+                <strong>Recover</strong><br>
+                Restore service and business capability safely, predictably and with
+                controlled recovery procedures.
+            </p>
+
+            <p>
+                <strong>Learn</strong><br>
+                Convert failures and exercises into architectural, operational and
+                organizational improvements.
+            </p>
+        </div>
+
+        <p>
+            Most organizations are strongest at Prevent and Recover.
+        </p>
+
+        <p>
+            The biggest resilience opportunities often exist in the middle:
+            <strong>Absorb and Degrade.</strong>
+        </p>
+
+        <p>
+            That is where architecture meets business prioritization.
+        </p>
+
+        <h2>18. How Leaders Know Whether Resilience Is Real</h2>
+
+        <p>
+            Leaders should be able to answer a small number of uncomfortable questions
+            without needing a slide deck.
+        </p>
+
+        <ul>
+            <li>What are our most important customer-facing business services?</li>
+            <li>What happens if their most critical dependency fails?</li>
+            <li>What can continue in degraded mode?</li>
+            <li>What functionality do we intentionally sacrifice first?</li>
+            <li>Where are our common failure domains?</li>
+            <li>Which third parties could create systemic impact?</li>
+            <li>Can we recover without our most experienced engineer?</li>
+            <li>When was the last time we tested the complete business service?</li>
+            <li>What did the last test change?</li>
+        </ul>
+
+        <p>
+            The last question is particularly important.
+        </p>
+
+        <p>
+            A resilience exercise that produces no architectural, operational or
+            organizational change may be an exercise in compliance rather than resilience.
+        </p>
+
+        <h2>19. The Leadership Shift</h2>
+
+        <p>
+            Resilience becomes powerful when it stops being owned exclusively by the
+            infrastructure or SRE organization.
+        </p>
+
+        <p>
+            Product leaders need to define which customer outcomes matter most.
+        </p>
+
+        <p>
+            Engineering leaders need to design the technical paths that protect them.
+        </p>
+
+        <p>
+            Platform teams need to provide resilient building blocks and reduce common
+            failure modes.
+        </p>
+
+        <p>
+            SRE teams need to provide reliability expertise, standards, testing,
+            operational insight and leverage.
+        </p>
+
+        <p>
+            Business leaders need to make explicit trade-offs around impact, cost and
+            acceptable disruption.
+        </p>
+
+        <p>
+            No single team can create business resilience alone.
+        </p>
+
+        <p>
+            But someone must own the outcome.
+        </p>
+
+        <p>
+            That is the leadership shift:
+        </p>
+
+        <blockquote>
+            <strong>Move the resilience conversation from “How do we keep our systems
+            running?” to “How do we keep the business delivering what matters?”</strong>
+        </blockquote>
+
+        <h2>20. The Leadership Question That Matters</h2>
+
+        <p>
+            Every organization eventually experiences a failure it did not expect.
+        </p>
+
+        <p>
+            The question is not whether the architecture contains every possible failure mode.
+        </p>
+
+        <p>
+            It cannot.
+        </p>
+
+        <p>
+            The question is whether the organization has designed enough resilience
+            around the failures that matter most.
+        </p>
+
+        <p>
+            When the next dependency fails, can the business absorb it?
+        </p>
+
+        <p>
+            When the next deployment goes wrong, can the blast radius be contained?
+        </p>
+
+        <p>
+            When the next critical platform becomes unavailable, can customers still
+            complete the most important part of their journey?
+        </p>
+
+        <p>
+            When recovery takes longer than expected, does the organization know what to protect first?
+        </p>
+
+        <p>
+            And when the recovery requires action, can the team execute without relying on heroics?
+        </p>
+
+        <p>
+            Those are resilience questions.
+        </p>
+
+        <p>
+            <strong>The leadership question is simple:</strong>
+        </p>
+
+        <blockquote>
+            <strong>If a critical technology dependency failed tomorrow,
+            what essential business service would fail with it—and what have we
+            deliberately designed to keep working?</strong>
+        </blockquote>
+
+        <h2>Closing Perspective</h2>
+
+        <p>
+            Resilience is not the absence of failure.
+        </p>
+
+        <p>
+            It is the ability to continue delivering what matters when failure occurs.
+        </p>
+
+        <p>
+            Technology resilience provides the foundation.
+        </p>
+
+        <p>
+            Business resilience determines whether that foundation protects customers,
+            revenue, trust and critical business outcomes.
+        </p>
+
+        <p>
+            The strongest engineering organizations do not simply build systems that survive failure.
+        </p>
+
+        <p>
+            They build organizations that know <strong>what must survive</strong>.
+        </p>
+
+        <p>
+            <strong>Build for failure. Design for degradation. Test the business service.
+            Protect the customer outcome.</strong>
+        </p>
+
+        <p>
+            That is what resilient by design really means.
+        </p>
+
+        <hr>
+
+        <h3>Sources &amp; Further Reading</h3>
+
+        <ul>
+            <li>
+                UK Parliament — Barclays evidence on the January–February 2025 IT incident
+            </li>
+            <li>
+                UK Parliament Treasury Committee — IT failures in major UK banks
+            </li>
+            <li>
+                AWS — October 2025 US-EAST-1 service disruption update
+            </li>
+            <li>
+                AWS — Post-Event Summaries
+            </li>
+            <li>
+                CrowdStrike — July 2024 preliminary post-incident report
+            </li>
+        </ul>
+
+    </div>
+
+</article>
+      </div>
+    </section>
+
+    <!-- ARTICLE CONTENT -->
+    <section class="section">
+      <div class="container-sm">
+        <article class="article">
+
+    <header class="article-header">
+
+        <div class="article-category">
+            SRE / Engineering Leadership
+        </div>
+
+        <h1>Resilient by Design: Building Systems That Expect Failure</h1>
+
+        <p class="article-subtitle">
+            Why technology resilience is only the foundation—and business resilience is the outcome.
+        </p>
+
+        <div class="article-meta">
+            <span>September 4, 2026</span>
+            <span>15 min read</span>
+        </div>
+
+    </header>
+
+    <div class="article-hero">
+        <img
+            src="../../assets/articles/resilient-by-design.png"
+            alt="Resilient by Design: technology resilience, business resilience and customer outcomes"
+            loading="eager"
+        >
+    </div>
+
+    <div class="article-content">
+
+        <p class="lead">
+            Most engineering organizations are very good at designing systems that are highly available.
+        </p>
+
+        <p>
+            Multiple availability zones. Redundant databases. Automated failover.
+            Backups. Disaster recovery environments. Observability. Incident response.
+            On-call rotations.
+        </p>
+
+        <p>
+            All of these capabilities matter.
+        </p>
+
+        <p>
+            But they can create a dangerous illusion: that technology resilience and
+            business resilience are the same thing.
+        </p>
+
+        <p>
+            They are not.
+        </p>
+
+        <p>
+            A system can be technically redundant and still leave customers unable to
+            complete the transaction that matters to them. A platform can remain
+            available while an essential business service is effectively unavailable.
+            A recovery procedure can work exactly as designed while the business
+            continues to absorb customer, financial, regulatory, or reputational harm.
+        </p>
+
+        <p>
+            <strong>Technology resilience is the means. Business resilience is the outcome.</strong>
+        </p>
+
+        <p>
+            Resilient by design means building systems that expect failure, contain it,
+            absorb it, degrade intelligently, recover predictably, and learn from it.
+        </p>
+
+        <h2>1. The Resilience Illusion</h2>
+
+        <p>
+            Reliability engineering often starts with a reasonable question:
+            “How do we keep the system available?”
+        </p>
+
+        <p>
+            Resilience requires a broader question:
+            <strong>“What must continue to work when the system cannot?”</strong>
+        </p>
+
+        <p>
+            That distinction changes architecture decisions.
+        </p>
+
+        <p>
+            If the objective is infrastructure availability, teams naturally focus on
+            servers, clusters, databases, networks and cloud regions.
+        </p>
+
+        <p>
+            If the objective is business resilience, the conversation moves upward:
+            customer journeys, essential services, transaction flows, operational
+            processes, people, third parties, recovery decisions and business impact.
+        </p>
+
+        <p>
+            The difference becomes visible during disruption.
+        </p>
+
+        <p>
+            When everything works, a highly available architecture and a resilient
+            business can look almost identical.
+        </p>
+
+        <p>
+            When something fails, they separate quickly.
+        </p>
+
+        <blockquote>
+            <strong>The real test of resilience is not what happens when everything works.
+            It is what the customer can still accomplish when something doesn't.</strong>
+        </blockquote>
+
+        <h2>2. Reliability Is Not Resilience</h2>
+
+        <p>
+            Reliability and resilience are closely related, but they answer different questions.
+        </p>
+
+        <p>
+            Reliability asks whether a service performs consistently within defined expectations.
+        </p>
+
+        <p>
+            Resilience asks what happens when those expectations are violated.
+        </p>
+
+        <p>
+            Reliability tries to reduce failure probability.
+        </p>
+
+        <p>
+            Resilience assumes that some failures will still happen.
+        </p>
+
+        <p>
+            That leads to a useful leadership distinction:
+        </p>
+
+        <ul>
+            <li><strong>Reliability:</strong> reduce the frequency and severity of failure.</li>
+            <li><strong>Resilience:</strong> limit the consequences when failure occurs.</li>
+            <li><strong>Business resilience:</strong> protect the outcomes that matter despite disruption.</li>
+        </ul>
+
+        <p>
+            Strong organizations need all three.
+        </p>
+
+        <p>
+            A resilient architecture does not attempt to eliminate every possible failure.
+            It creates boundaries around failure.
+        </p>
+
+        <p>
+            The objective is not perfection.
+        </p>
+
+        <p>
+            The objective is controlled imperfection.
+        </p>
+
+        <h2>3. Technology Resilience vs. Business Resilience</h2>
+
+        <p>
+            Technology resilience describes whether the technology estate can withstand
+            disruption: infrastructure failures, database failures, network problems,
+            capacity exhaustion, bad deployments, dependency failures, data corruption,
+            cloud control-plane issues or regional disruption.
+        </p>
+
+        <p>
+            Business resilience asks whether the business can continue delivering its
+            most important services despite those disruptions.
+        </p>
+
+        <p>
+            A useful way to see the relationship is:
+        </p>
+
+        <div class="framework-box">
+            <p><strong>Customer outcome</strong></p>
+            <p>↓</p>
+            <p><strong>Essential business service</strong></p>
+            <p>↓</p>
+            <p><strong>Customer journey</strong></p>
+            <p>↓</p>
+            <p><strong>Application / service</strong></p>
+            <p>↓</p>
+            <p><strong>Platform</strong></p>
+            <p>↓</p>
+            <p><strong>Infrastructure / dependencies / third parties</strong></p>
+        </div>
+
+        <p>
+            The customer does not consume infrastructure.
+        </p>
+
+        <p>
+            <strong>The customer consumes a service.</strong>
+        </p>
+
+        <p>
+            That means resilience has to be evaluated from the top of the stack down,
+            not only from the bottom up.
+        </p>
+
+        <p>
+            Technology resilience is the foundation. Application resilience extends it.
+            Service resilience makes it meaningful. Business resilience makes it matter.
+            And customer resilience is the outcome we ultimately care about.
+        </p>
+
+        <h2>4. Start With the Essential Business Service</h2>
+
+        <p>
+            One of the biggest mistakes in resilience programs is starting with infrastructure inventories.
+        </p>
+
+        <p>
+            Teams catalogue applications, servers, databases, queues, APIs and cloud services.
+            The inventory becomes extensive.
+        </p>
+
+        <p>
+            But the key question remains unanswered:
+            <strong>Which business services must continue, and what level of disruption can the business actually tolerate?</strong>
+        </p>
+
+        <p>
+            Start with the service.
+        </p>
+
+        <p>
+            For a bank, examples might include access to money, payments, transfers,
+            card transactions, trading, settlement, customer authentication and other
+            critical financial services.
+        </p>
+
+        <p>
+            Not every function deserves the same resilience target.
+        </p>
+
+        <p>
+            A reporting dashboard being unavailable for two hours is fundamentally
+            different from customers being unable to access their money on payday.
+        </p>
+
+        <p>
+            Resilience therefore requires prioritization.
+        </p>
+
+        <p>
+            For each essential service, leaders should understand:
+        </p>
+
+        <ul>
+            <li>What customer outcome does the service protect?</li>
+            <li>How long can the service be disrupted?</li>
+            <li>What level of degraded service is acceptable?</li>
+            <li>Which technology components support it?</li>
+            <li>Which people and operational processes are required?</li>
+            <li>Which third parties are involved?</li>
+            <li>What alternative path exists if the primary path fails?</li>
+            <li>What is the business impact if recovery takes longer than expected?</li>
+        </ul>
+
+        <p>
+            This is where resilience becomes an engineering leadership problem rather than an infrastructure checklist.
+        </p>
+
+        <h2>5. Case Study: Barclays — When Technology Concentration Becomes Business Risk</h2>
+
+        <p>
+            The Barclays incident in early 2025 is a useful example because the
+            technology failure and the business impact were tightly connected.
+        </p>
+
+        <p>
+            Barclays told the UK Parliament's Treasury Committee that the root cause
+            of the January 31, 2025 incident was a software problem in a critical
+            module of its UK mainframe operating system. The bank said the problem
+            caused progressively severe degradation in mainframe processing performance.
+        </p>
+
+        <p>
+            That mainframe supported core banking applications including deposits,
+            overdrafts and debit cards across Barclays UK, as well as services for
+            other parts of the bank.
+        </p>
+
+        <p>
+            The incident therefore was not simply a “mainframe outage.”
+        </p>
+
+        <p>
+            It was a resilience problem at the boundary between a technology dependency
+            and essential customer services.
+        </p>
+
+        <p>
+            The UK Treasury Committee subsequently reported that 56% of online payment
+            attempts during the incident failed because of severe degradation in
+            mainframe processing performance.
+        </p>
+
+        <p>
+            That distinction matters.
+        </p>
+
+        <p>
+            The important question is not:
+            <em>“Was the mainframe highly reliable?”</em>
+        </p>
+
+        <p>
+            The more important question is:
+            <strong>“What happens to essential customer services when a critical dependency becomes impaired?”</strong>
+        </p>
+
+        <p>
+            Barclays' broader evidence to Parliament also describes resilience
+            mechanisms such as alternative channels, duplicated systems, stand-in
+            processing, manual processing, identification of critical banking services,
+            and senior accountability for those services.
+        </p>
+
+        <p>
+            The lesson for engineering leaders is not that legacy technology is inherently bad.
+        </p>
+
+        <p>
+            The lesson is that <strong>technology concentration becomes business risk
+            when the failure of one component can cross multiple service boundaries.</strong>
+        </p>
+
+        <blockquote>
+            <strong>Do not ask only where your single points of failure are.
+            Ask which customer outcomes depend on them.</strong>
+        </blockquote>
+
+        <h2>6. Case Study: AWS — When Shared Dependencies Defeat Apparent Redundancy</h2>
+
+        <p>
+            The October 2025 AWS disruption provides another important resilience lesson.
+        </p>
+
+        <p>
+            AWS reported that increased error rates in US-EAST-1 were triggered by DNS
+            resolution issues involving regional DynamoDB endpoints.
+        </p>
+
+        <p>
+            Resolving that initial issue did not immediately restore everything.
+        </p>
+
+        <p>
+            AWS reported that a small subset of internal subsystems remained impaired.
+            EC2 instance launches were subsequently throttled, and additional services
+            experienced downstream effects.
+        </p>
+
+        <p>
+            AWS later described an impairment in the EC2 subsystem responsible for
+            launching instances because of its dependency on DynamoDB. Network Load
+            Balancer health checks were also affected, producing connectivity problems
+            across multiple services.
+        </p>
+
+        <p>
+            This is the classic resilience trap:
+        </p>
+
+        <p>
+            <strong>Redundancy at one layer does not guarantee independence at the dependency layer.</strong>
+        </p>
+
+        <p>
+            Two services can be deployed independently and still share a dependency
+            that creates a common failure domain.
+        </p>
+
+        <p>
+            This is why architecture reviews that only ask “Do we have redundancy?”
+            are incomplete.
+        </p>
+
+        <p>
+            Leaders should also ask:
+        </p>
+
+        <ul>
+            <li>What do the redundant paths still share?</li>
+            <li>Which control-plane services do they depend on?</li>
+            <li>Which identity, DNS, networking or data services are common?</li>
+            <li>Can a degraded dependency create a queue or backlog?</li>
+            <li>Can recovery itself overload another dependency?</li>
+        </ul>
+
+        <p>
+            Resilience is not about having more components.
+        </p>
+
+        <p>
+            It is about having meaningful failure boundaries.
+        </p>
+
+        <h2>7. Case Study: CrowdStrike — When Change Becomes a Failure Domain</h2>
+
+        <p>
+            The July 2024 CrowdStrike incident demonstrates a different category of
+            resilience risk: change itself can become a failure domain.
+        </p>
+
+        <p>
+            CrowdStrike's preliminary post-incident report described a problematic
+            Rapid Response Content update that caused Windows systems to crash.
+            The company identified a defect in its content validation process that
+            allowed the problematic content to pass through.
+        </p>
+
+        <p>
+            The engineering lesson extends well beyond endpoint security.
+        </p>
+
+        <p>
+            A deployment pipeline can be highly automated, observable and fast—and
+            still have an enormous blast radius if the change is allowed to reach too
+            many systems before the failure becomes visible.
+        </p>
+
+        <p>
+            This is why resilient change management includes:
+        </p>
+
+        <ul>
+            <li>Staged and ring-based deployment.</li>
+            <li>Canary populations.</li>
+            <li>Strong validation before production exposure.</li>
+            <li>Fast rollback or recovery mechanisms.</li>
+            <li>Customer control where practical.</li>
+            <li>Monitoring designed to detect systemic impact.</li>
+            <li>Fault injection and stability testing.</li>
+        </ul>
+
+        <p>
+            The deeper lesson is simple:
+        </p>
+
+        <blockquote>
+            <strong>A deployment is not resilient merely because it can be rolled back.
+            It is resilient when the blast radius is controlled before rollback becomes necessary.</strong>
+        </blockquote>
+
+        <h2>8. Design for Failure, Not Just Recovery</h2>
+
+        <p>
+            Many organizations treat resilience as a recovery problem.
+        </p>
+
+        <p>
+            Something fails.
+        </p>
+
+        <p>
+            Engineers restore it.
+        </p>
+
+        <p>
+            Service returns.
+        </p>
+
+        <p>
+            Incident closes.
+        </p>
+
+        <p>
+            But recovery is only one stage.
+        </p>
+
+        <p>
+            A resilient architecture asks what happens before recovery is possible.
+        </p>
+
+        <p>
+            Can the service absorb the failure?
+        </p>
+
+        <p>
+            Can it operate in a degraded mode?
+        </p>
+
+        <p>
+            Can non-critical functions be sacrificed to preserve critical ones?
+        </p>
+
+        <p>
+            Can customers complete the most important part of their journey through another path?
+        </p>
+
+        <p>
+            Designing for failure means making those decisions before the incident.
+        </p>
+
+        <p>
+            <strong>Don't design only for the system you expect to have.
+            Design for the business you need to protect when the system behaves unexpectedly.</strong>
+        </p>
+
+        <h2>9. The Dependency Problem</h2>
+
+        <p>
+            Dependencies are often where resilience assumptions become weakest.
+        </p>
+
+        <p>
+            Teams know their direct dependencies.
+        </p>
+
+        <p>
+            They are often less certain about indirect dependencies.
+        </p>
+
+        <p>
+            A service may depend on an API that depends on a database that depends on
+            a storage system that depends on an identity service that depends on a
+            shared control plane.
+        </p>
+
+        <p>
+            Each individual dependency may appear reasonable.
+        </p>
+
+        <p>
+            The combined dependency graph may be fragile.
+        </p>
+
+        <p>
+            Resilience reviews should therefore examine dependency depth, common-mode
+            failures, third-party concentration and recovery dependencies—not simply
+            uptime commitments.
+        </p>
+
+        <p>
+            A vendor promising 99.99% availability does not make your business resilient
+            if your service has no alternative path when that vendor fails.
+        </p>
+
+        <h2>10. Graceful Degradation Is a Business Decision</h2>
+
+        <p>
+            Graceful degradation is frequently described as a technical capability.
+        </p>
+
+        <p>
+            In reality, it is a business decision expressed through technology.
+        </p>
+
+        <p>
+            When capacity is constrained, which functionality stays?
+        </p>
+
+        <p>
+            When a dependency is unavailable, which transactions are prioritized?
+        </p>
+
+        <p>
+            When the system is overloaded, which customers or operations receive protection?
+        </p>
+
+        <p>
+            These decisions should not be invented at 2 a.m. during an incident.
+        </p>
+
+        <p>
+            Leaders should establish them beforehand.
+        </p>
+
+        <p>
+            A resilient system may deliberately provide less functionality during
+            disruption so that it can continue providing the functionality that matters most.
+        </p>
+
+        <p>
+            That is not failure.
+        </p>
+
+        <p>
+            <strong>That is resilience.</strong>
+        </p>
+
+        <h2>11. For Financial Services, Not All Availability Is Equal</h2>
+
+        <p>
+            Financial services make this distinction especially visible.
+        </p>
+
+        <p>
+            Not every banking feature carries the same consequence when unavailable.
+        </p>
+
+        <p>
+            A customer being unable to change a profile preference is inconvenient.
+        </p>
+
+        <p>
+            A customer being unable to access money, make a payment, transfer funds,
+            complete a settlement or execute a time-critical transaction can create
+            immediate financial harm.
+        </p>
+
+        <p>
+            Trading is another example where timing can materially change the impact
+            of disruption.
+        </p>
+
+        <p>
+            This means availability targets should not be assigned uniformly across
+            the technology estate.
+        </p>
+
+        <p>
+            The resilience requirement should follow the business consequence.
+        </p>
+
+        <div class="framework-box">
+            <p><strong>Ask in this order:</strong></p>
+            <p>What customer outcome matters?</p>
+            <p>What business service delivers it?</p>
+            <p>What level of disruption is tolerable?</p>
+            <p>What technology capability is required to protect it?</p>
+        </div>
+
+        <p>
+            This is also why regulators increasingly frame operational resilience
+            around important business services and impact tolerances rather than
+            infrastructure availability alone.
+        </p>
+
+        <h2>12. Technical Recovery Is Not Business Recovery</h2>
+
+        <p>
+            One of the most dangerous statements during an incident is:
+            “The system is back.”
+        </p>
+
+        <p>
+            Back does not necessarily mean recovered.
+        </p>
+
+        <p>
+            A database may be online while transactions remain queued.
+        </p>
+
+        <p>
+            An API may respond successfully while downstream reconciliation is incomplete.
+        </p>
+
+        <p>
+            A payment platform may be technically available while customers cannot
+            complete their end-to-end journey.
+        </p>
+
+        <p>
+            Backlogs, stale data, duplicate transactions, manual work and customer
+            support queues can continue long after infrastructure recovery.
+        </p>
+
+        <p>
+            Therefore:
+        </p>
+
+        <blockquote>
+            <strong>Technology recovery ≠ Business recovery.</strong>
+        </blockquote>
+
+        <p>
+            Recovery objectives should include business validation:
+        </p>
+
+        <ul>
+            <li>Can customers complete the critical journey?</li>
+            <li>Are transactions processing correctly?</li>
+            <li>Are backlogs under control?</li>
+            <li>Is data consistent?</li>
+            <li>Are downstream and third-party processes functioning?</li>
+            <li>Has customer impact actually stopped?</li>
+        </ul>
+
+        <h2>13. The Human Failure Domain</h2>
+
+        <p>
+            Technology is not the only failure domain.
+        </p>
+
+        <p>
+            People are part of the architecture.
+        </p>
+
+        <p>
+            If only one engineer understands the recovery sequence, that engineer is
+            effectively a single point of failure.
+        </p>
+
+        <p>
+            If only one team can make a critical production change, the organization
+            has created an operational dependency.
+        </p>
+
+        <p>
+            If recovery requires undocumented knowledge, manual commands and
+            exceptional permissions, resilience is weaker than the architecture diagram suggests.
+        </p>
+
+        <p>
+            This is why resilient organizations invest in:
+        </p>
+
+        <ul>
+            <li>Documented recovery procedures.</li>
+            <li>Cross-training.</li>
+            <li>Clear decision rights.</li>
+            <li>Tested runbooks.</li>
+            <li>Incident leadership capability.</li>
+            <li>Automation for repeatable recovery steps.</li>
+            <li>Regular resilience exercises.</li>
+        </ul>
+
+        <p>
+            If recovery requires heroics, the system may be recoverable—but it isn't resilient.
+        </p>
+
+        <h2>14. Resilience Has a Cost</h2>
+
+        <p>
+            Resilience is not free.
+        </p>
+
+        <p>
+            Redundancy costs money.
+        </p>
+
+        <p>
+            Multi-region architecture costs money.
+        </p>
+
+        <p>
+            Additional testing costs engineering capacity.
+        </p>
+
+        <p>
+            Isolation creates complexity.
+        </p>
+
+        <p>
+            Graceful degradation requires product decisions.
+        </p>
+
+        <p>
+            Manual fallbacks require operational readiness.
+        </p>
+
+        <p>
+            The leadership mistake is to ask:
+            “How resilient can we make everything?”
+        </p>
+
+        <p>
+            The better question is:
+            <strong>“Where does additional resilience create enough business value to justify its cost?”</strong>
+        </p>
+
+        <p>
+            This is a portfolio decision, not simply an engineering decision.
+        </p>
+
+        <h2>15. The Resilience Budget</h2>
+
+        <p>
+            A practical way to make this trade-off visible is to establish a resilience
+            budget for each essential business service.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Dimension</th>
+                    <th>Leadership question</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Availability</td>
+                    <td>How much disruption can the service tolerate?</td>
+                </tr>
+                <tr>
+                    <td>Degradation</td>
+                    <td>What functionality can be sacrificed?</td>
+                </tr>
+                <tr>
+                    <td>Recovery</td>
+                    <td>How quickly must the business outcome return?</td>
+                </tr>
+                <tr>
+                    <td>Dependencies</td>
+                    <td>Which common failure domains can affect the service?</td>
+                </tr>
+                <tr>
+                    <td>People</td>
+                    <td>Can recovery succeed without specific individuals?</td>
+                </tr>
+                <tr>
+                    <td>Third parties</td>
+                    <td>What happens if a critical supplier fails?</td>
+                </tr>
+                <tr>
+                    <td>Data</td>
+                    <td>What data loss or inconsistency is acceptable?</td>
+                </tr>
+                <tr>
+                    <td>Customer impact</td>
+                    <td>What harm occurs while recovery is underway?</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            This creates a more useful conversation than simply asking whether a system
+            is “highly available.”
+        </p>
+
+        <h2>16. Test the Business Service, Not Just the Technology</h2>
+
+        <p>
+            Resilience that has never been tested is an assumption.
+        </p>
+
+        <p>
+            Teams often test individual components:
+        </p>
+
+        <ul>
+            <li>Database failover.</li>
+            <li>Instance replacement.</li>
+            <li>Backup restoration.</li>
+            <li>Network failover.</li>
+            <li>Deployment rollback.</li>
+        </ul>
+
+        <p>
+            Those tests are necessary.
+        </p>
+
+        <p>
+            They are not sufficient.
+        </p>
+
+        <p>
+            The stronger test is end-to-end:
+            <strong>Can the essential business service still deliver its intended
+            customer outcome under a severe but plausible disruption?</strong>
+        </p>
+
+        <p>
+            That might mean testing:
+        </p>
+
+        <ul>
+            <li>A critical third-party dependency becoming unavailable.</li>
+            <li>A key technology platform becoming degraded.</li>
+            <li>Reduced staffing during a major incident.</li>
+            <li>A regional infrastructure failure.</li>
+            <li>A failed deployment combined with elevated traffic.</li>
+            <li>Data inconsistency during recovery.</li>
+            <li>Loss of a primary operational channel.</li>
+        </ul>
+
+        <p>
+            The test should follow the customer journey all the way through.
+        </p>
+
+        <p>
+            If the customer outcome fails, the business service is not resilient enough,
+            regardless of how healthy the underlying infrastructure metrics look.
+        </p>
+
+        <h2>17. The Resilient-by-Design Framework</h2>
+
+        <p>
+            A simple five-stage model can help engineering and business leaders evaluate
+            resilience consistently:
+        </p>
+
+        <div class="framework-box">
+            <h3>Prevent → Absorb → Degrade → Recover → Learn</h3>
+
+            <p>
+                <strong>Prevent</strong><br>
+                Reduce the likelihood and severity of failure through engineering
+                controls, testing, safe change and capacity planning.
+            </p>
+
+            <p>
+                <strong>Absorb</strong><br>
+                Keep local failures from becoming systemic failures through isolation,
+                redundancy, dependency boundaries and controlled blast radius.
+            </p>
+
+            <p>
+                <strong>Degrade</strong><br>
+                Preserve the most important customer and business outcomes when full
+                functionality is impossible.
+            </p>
+
+            <p>
+                <strong>Recover</strong><br>
+                Restore service and business capability safely, predictably and with
+                controlled recovery procedures.
+            </p>
+
+            <p>
+                <strong>Learn</strong><br>
+                Convert failures and exercises into architectural, operational and
+                organizational improvements.
+            </p>
+        </div>
+
+        <p>
+            Most organizations are strongest at Prevent and Recover.
+        </p>
+
+        <p>
+            The biggest resilience opportunities often exist in the middle:
+            <strong>Absorb and Degrade.</strong>
+        </p>
+
+        <p>
+            That is where architecture meets business prioritization.
+        </p>
+
+        <h2>18. How Leaders Know Whether Resilience Is Real</h2>
+
+        <p>
+            Leaders should be able to answer a small number of uncomfortable questions
+            without needing a slide deck.
+        </p>
+
+        <ul>
+            <li>What are our most important customer-facing business services?</li>
+            <li>What happens if their most critical dependency fails?</li>
+            <li>What can continue in degraded mode?</li>
+            <li>What functionality do we intentionally sacrifice first?</li>
+            <li>Where are our common failure domains?</li>
+            <li>Which third parties could create systemic impact?</li>
+            <li>Can we recover without our most experienced engineer?</li>
+            <li>When was the last time we tested the complete business service?</li>
+            <li>What did the last test change?</li>
+        </ul>
+
+        <p>
+            The last question is particularly important.
+        </p>
+
+        <p>
+            A resilience exercise that produces no architectural, operational or
+            organizational change may be an exercise in compliance rather than resilience.
+        </p>
+
+        <h2>19. The Leadership Shift</h2>
+
+        <p>
+            Resilience becomes powerful when it stops being owned exclusively by the
+            infrastructure or SRE organization.
+        </p>
+
+        <p>
+            Product leaders need to define which customer outcomes matter most.
+        </p>
+
+        <p>
+            Engineering leaders need to design the technical paths that protect them.
+        </p>
+
+        <p>
+            Platform teams need to provide resilient building blocks and reduce common
+            failure modes.
+        </p>
+
+        <p>
+            SRE teams need to provide reliability expertise, standards, testing,
+            operational insight and leverage.
+        </p>
+
+        <p>
+            Business leaders need to make explicit trade-offs around impact, cost and
+            acceptable disruption.
+        </p>
+
+        <p>
+            No single team can create business resilience alone.
+        </p>
+
+        <p>
+            But someone must own the outcome.
+        </p>
+
+        <p>
+            That is the leadership shift:
+        </p>
+
+        <blockquote>
+            <strong>Move the resilience conversation from “How do we keep our systems
+            running?” to “How do we keep the business delivering what matters?”</strong>
+        </blockquote>
+
+        <h2>20. The Leadership Question That Matters</h2>
+
+        <p>
+            Every organization eventually experiences a failure it did not expect.
+        </p>
+
+        <p>
+            The question is not whether the architecture contains every possible failure mode.
+        </p>
+
+        <p>
+            It cannot.
+        </p>
+
+        <p>
+            The question is whether the organization has designed enough resilience
+            around the failures that matter most.
+        </p>
+
+        <p>
+            When the next dependency fails, can the business absorb it?
+        </p>
+
+        <p>
+            When the next deployment goes wrong, can the blast radius be contained?
+        </p>
+
+        <p>
+            When the next critical platform becomes unavailable, can customers still
+            complete the most important part of their journey?
+        </p>
+
+        <p>
+            When recovery takes longer than expected, does the organization know what to protect first?
+        </p>
+
+        <p>
+            And when the recovery requires action, can the team execute without relying on heroics?
+        </p>
+
+        <p>
+            Those are resilience questions.
+        </p>
+
+        <p>
+            <strong>The leadership question is simple:</strong>
+        </p>
+
+        <blockquote>
+            <strong>If a critical technology dependency failed tomorrow,
+            what essential business service would fail with it—and what have we
+            deliberately designed to keep working?</strong>
+        </blockquote>
+
+        <h2>Closing Perspective</h2>
+
+        <p>
+            Resilience is not the absence of failure.
+        </p>
+
+        <p>
+            It is the ability to continue delivering what matters when failure occurs.
+        </p>
+
+        <p>
+            Technology resilience provides the foundation.
+        </p>
+
+        <p>
+            Business resilience determines whether that foundation protects customers,
+            revenue, trust and critical business outcomes.
+        </p>
+
+        <p>
+            The strongest engineering organizations do not simply build systems that survive failure.
+        </p>
+
+        <p>
+            They build organizations that know <strong>what must survive</strong>.
+        </p>
+
+        <p>
+            <strong>Build for failure. Design for degradation. Test the business service.
+            Protect the customer outcome.</strong>
+        </p>
+
+        <p>
+            That is what resilient by design really means.
+        </p>
+
+        <hr>
+
+        <h3>Sources &amp; Further Reading</h3>
+
+        <ul>
+            <li>
+                UK Parliament — Barclays evidence on the January–February 2025 IT incident
+            </li>
+            <li>
+                UK Parliament Treasury Committee — IT failures in major UK banks
+            </li>
+            <li>
+                AWS — October 2025 US-EAST-1 service disruption update
+            </li>
+            <li>
+                AWS — Post-Event Summaries
+            </li>
+            <li>
+                CrowdStrike — July 2024 preliminary post-incident report
+            </li>
+        </ul>
+
+    </div>
+
+</article>
+      </div>
+    </section>
+
+    <!-- ARTICLE NAVIGATION -->
+    <section class="section section-alt">
+      <div class="container-sm">
+        <div class="card text-center">
+          <h3>Continue Exploring Reliability Leadership</h3>
+          <p>
+            Explore more practical perspectives on reliability, engineering leadership,
+            platform strategy and operational excellence.
+          </p>
+          <a href="../" class="btn btn-primary">Explore Insights</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>The SRE Leadership Hub</h3>
+          <p>Building reliable, scalable and intelligent engineering organizations.</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="../../">Home</a></li>
+            <li><a href="../../insights/">Insights</a></li>
+            <li><a href="../../resources/">Resources</a></li>
+            <li><a href="../../advisory/">Advisory</a></li>
+            <li><a href="../../newsletter/">Newsletter</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Topics</h4>
+          <ul>
+            <li><a href="../">SRE</a></li>
+            <li><a href="../">Platform Engineering</a></li>
+            <li><a href="../">Cloud</a></li>
+            <li><a href="../">AI Operations</a></li>
+            <li><a href="../">Engineering Leadership</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-divider">
+        <div class="footer-bottom">
+          <p>&copy; 2026 The SRE Leadership Hub. All rights reserved.</p>
+          <p>
+            <a href="../../about/">About</a> |
+            <a href="../../contact/">Contact</a> | <a href="../../privacy/">Privacy Policy</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
